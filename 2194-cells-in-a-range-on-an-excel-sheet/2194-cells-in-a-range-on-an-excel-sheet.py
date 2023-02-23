@@ -1,6 +1,7 @@
 class Solution:
     def cellsInRange(self, s: str) -> List[str]:
-        return [chr(x)+str(y) for x in range(ord(s[0]),ord(s[-2])+1) for y in range(int(s[1]),int(s[-1])+1)]
+        s0, s1, _, s3, s4 = map(ord, s)
+        return [chr(x) + chr(y) for x in range(s0, s3 + 1) for y in range(s1, s4 + 1)]
 
 
                
