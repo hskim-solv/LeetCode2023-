@@ -1,7 +1,9 @@
 from itertools import permutations
 class Solution:
     def minimumSum(self, num: int) -> int:
-        ssn = sorted(str(num))
-
-        return int(ssn[0] + ssn[2]) + int(ssn[1] + ssn[3])
-    
+        l = []
+        while num:
+            num, digit = divmod(num, 10)
+            l.append(digit)
+        l.sort()
+        return (l[0]+l[1])*10 + l[2] + l[3]
