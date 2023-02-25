@@ -7,9 +7,8 @@ class Solution:
             return convert(n, base) + str(mod)
         for base in range(2, n - 1):
             converted_n = convert(n, base)
-            for i in range(len(converted_n)//2):
-                if converted_n[i] != converted_n[-(i+1)]:
-                    return False  
+            if converted_n != converted_n[::-1]:
+                return False  
         return True
 
         
