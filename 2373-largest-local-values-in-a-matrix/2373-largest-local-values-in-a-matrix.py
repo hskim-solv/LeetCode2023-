@@ -5,7 +5,7 @@ class Solution:
         for i in range(n - 2):
             result.append([])
             for j in range(n - 2):
-                result[i].append( max(grid[i+x][j+y] for x in range(3) for y in range(3)))
+                result[i].append( max(max(grid[i+x][j:j+3]) for x in range(3)))
 
         return result
 
