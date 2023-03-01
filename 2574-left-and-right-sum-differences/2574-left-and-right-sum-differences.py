@@ -1,6 +1,6 @@
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
-        '''
+        
         total = sum(nums)
         answar = []
         cum = 0
@@ -18,3 +18,4 @@ class Solution:
             right -= nums[i]
         ans.append(left)
         return ans
+        '''
