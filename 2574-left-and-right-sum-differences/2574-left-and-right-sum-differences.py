@@ -11,7 +11,6 @@ class Solution:
         '''
         cum = list(itertools.accumulate(nums))
         total = cum[-1]
-        print(total)
         return [abs(total-c*2 + n) for n,c in zip(nums,cum)]
         '''
         left = 0
