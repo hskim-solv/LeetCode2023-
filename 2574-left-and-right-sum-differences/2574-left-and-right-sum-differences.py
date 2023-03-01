@@ -5,7 +5,7 @@ class Solution:
         answar = []
         cum = 0
         for n in nums:
-            answar.append(abs(total - n - cum * 2))
+            answar.append(abs(total - cum * 2 - n))
             cum += n
         return answar
         '''
