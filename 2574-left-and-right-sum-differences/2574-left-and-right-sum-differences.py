@@ -15,13 +15,12 @@ class Solution:
         return [abs(total- c*2 + n) for n,c in zip(nums,cum)]
         '''
         # 3
-        left = 0
-        right = sum(nums)
-        ans = []
+        left, right, answar  = 0, sum(nums), []
+
         for n in nums:
             left += n
-            ans.append(abs(left-right))
+            answar.append(abs(right-left))
             right -= n
-        return ans
+        return answar
         
         
