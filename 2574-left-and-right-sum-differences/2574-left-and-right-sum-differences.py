@@ -4,7 +4,7 @@ class Solution:
         total = sum(nums)
         answar = []
         cum = 0
-        for n in nums:
+        for i, n in enumerate(nums):
             answar.append(abs(total - n - cum * 2))
             cum += n
         return answar
