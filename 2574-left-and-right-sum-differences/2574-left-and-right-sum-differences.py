@@ -1,8 +1,7 @@
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
-        total = sum(nums)
+        total, cum = sum(nums), 0
         answar = []
-        cum = 0
         for n in nums:
             answar.append(abs(total - n - cum * 2))
             cum += n
