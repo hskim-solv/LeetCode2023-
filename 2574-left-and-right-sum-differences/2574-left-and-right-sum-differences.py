@@ -9,17 +9,17 @@ class Solution:
             cum += n
         return answar
         '''
+        '''
         cum = list(itertools.accumulate(nums))
         total = cum[-1]
         return [abs(total- c*2 + n) for n,c in zip(nums,cum)]
         '''
         left = 0
-        right = sum(nums[1:])
+        right = sum(nums)
         ans = []
-        for i in range(1,len(nums)):
+        for n in nums:
+            left += n
             ans.append(abs(left-right))
-            left += nums[i-1]
-            right -= nums[i]
-        ans.append(left)
+            right -= n
         return ans
-        '''
+        
