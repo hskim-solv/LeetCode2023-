@@ -11,7 +11,7 @@ class Solution:
         '''
         cum = list(itertools.accumulate(nums))
         total = cum[-1]
-        return [abs(total-c*2 + n) for n,c in zip(nums,cum)]
+        return [abs(total- c*2 + n) for n,c in zip(nums,cum)]
         '''
         left = 0
         right = sum(nums[1:])
