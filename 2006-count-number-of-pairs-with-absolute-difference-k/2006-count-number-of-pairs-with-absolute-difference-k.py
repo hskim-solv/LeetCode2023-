@@ -4,5 +4,6 @@ class Solution:
         while nums:
             n = nums.pop()
             ans += nums.count(n+k)
-            ans += nums.count(n-k)
+            if n > k:
+                ans += nums.count(n-k)
         return ans
