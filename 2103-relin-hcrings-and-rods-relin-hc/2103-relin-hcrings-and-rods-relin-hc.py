@@ -1,6 +1,6 @@
 class Solution:
     def countPoints(self, rings: str) -> int:
-        rgb = {str(i):"" for i in set(rings[1::2]) }
+        rgb = { i:"" for i in set(rings[1::2]) }
         print(rgb)
         for i in range(0,len(rings),2):
             color, th = rings[i:i+2]
