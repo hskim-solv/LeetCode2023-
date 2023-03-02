@@ -1,3 +1,3 @@
 class Solution:
     def countAsterisks(self, s: str) -> int:
-        return sum(ss.count('*') for ss in s.split('|')[::2])
+        return ''.join(s.split('|')[::2]).count('*')
