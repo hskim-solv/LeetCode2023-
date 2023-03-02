@@ -1,5 +1,7 @@
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
-        la = len(arr)
-        h = len(arr) // 2
-        return  ( (h + 1) * ceil(la/2) + 1) // 2 * (arr[h] if la & 1 else 0)  + sum( ((i + 1) * (la - i) + 1) // 2 * (arr[i] + arr[-i-1])  for i in range(h) )
+        ans = sum( ((i + 1) * (len(arr) - i) + 1) // 2 * (arr[i] + arr[-i-1])  for i in range(len(arr) // 2) )
+        if len(arr) & 1:
+            h = len(arr) // 2
+            ans += ((h + 1) * (len(arr) - h) + 1) // 2 * (arr[h]) 
+        return ans
