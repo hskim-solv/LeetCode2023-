@@ -5,7 +5,7 @@ class Solution:
                     zip(
                 *sorted( 
                     [ 
-                        (sum( row ) , i)                          for i, row in enumerate(mat) 
+                        (sum( takewhile(lambda x: x, row) ) , i)                          for i, row in enumerate(mat) 
                     ] 
                 )  
                     ) 
