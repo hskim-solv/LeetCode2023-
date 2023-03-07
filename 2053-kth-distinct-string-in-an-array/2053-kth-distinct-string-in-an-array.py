@@ -1,15 +1,6 @@
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
-        dtt, trash = [], []
-        i = 0
-
-        ox = Counter(arr)
-        for ist in arr:
-            if ox[ist] == 1:
-                i += 1
-                if i == k:
-                    return ist
-            del ox[ist]
-            if not ox:
-                return ""
-            
+        o = [k for k,v in Counter(arr).items() if v == 1]
+        if len(o) >= k:
+            return o[k-1]
+        return ""
