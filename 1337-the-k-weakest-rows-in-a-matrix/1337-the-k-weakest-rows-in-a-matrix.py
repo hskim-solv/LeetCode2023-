@@ -5,12 +5,12 @@ class Solution:
                     zip(
                 *sorted( 
                     [ 
-                        (sum( takewhile(lambda x: x, row) ) , i)                          for i, row in enumerate(mat) 
+                        (sum( row ) , i)                          for i, row in enumerate(mat) 
                     ] 
-                )[:k]  
+                )  
                     ) 
             
             )[1]
-    ) 
+    )[:k] 
         
              
