@@ -6,8 +6,8 @@ class Solution:
             for j in range(i + 1, lenth - 1):
                 for k in range(j + 1, lenth):
                     if abs(arr[i] - arr[j]) <= a:
-                        if abs(arr[i] - arr[k]) <= c:
-                            if abs(arr[j] - arr[k]) <= b:
+                        if abs(arr[j] - arr[k]) <= b:
+                            if abs(arr[i] - arr[k]) <= c:
                                 ans += 1
         return ans
 
