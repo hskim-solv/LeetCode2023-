@@ -2,7 +2,8 @@ class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         ans = {}
         nums2 = deque(nums2)
-        while nums2:
+        len_nums1 = len(nums1)
+        while len(ans) != len_nums1:
             n = nums2.popleft()
             if n in nums1:
                 i = nums1.index(n)
