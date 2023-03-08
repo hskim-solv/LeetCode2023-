@@ -4,7 +4,7 @@ class Solution:
         nums2 = deque(nums2)
         len_nums1 = len(nums1)
         while len(ans) != len_nums1:
-            n = nums2.popleft()
+            n = nums2.popleft()     
             if n in nums1:
                 i = nums1.index(n)
                 for n2 in nums2:
@@ -14,7 +14,7 @@ class Solution:
                 if i not in ans:
                     ans[i] = -1
 
-        return [ v for k, v in sorted(ans.items()) ]
+        return [ v for _, v in sorted(ans.items()) ]
 
 
 '''
