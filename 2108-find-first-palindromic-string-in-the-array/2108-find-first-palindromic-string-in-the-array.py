@@ -1,8 +1,3 @@
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
-        words = deque(words)
-        while words:
-            word = words.popleft()
-            if word == word[::-1]:
-                return word
-        return ""
+        return next((word for word in deque(words) if word == word[::-1]),"")
