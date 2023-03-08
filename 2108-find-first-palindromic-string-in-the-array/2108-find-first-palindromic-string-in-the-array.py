@@ -3,7 +3,6 @@ class Solution:
         #return next((for word in deque(words) if word == word[::-1]),"")
         #words = deque(words)
         while (words := deque(words)):
-            word = words.popleft()
-            if word == word[::-1]:
+            if (word:=words.popleft()) == word[::-1]:
                 return word
         return ""
