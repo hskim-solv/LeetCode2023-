@@ -6,6 +6,6 @@ class Solution:
                 if i * j % k:
                     continue
                 if nums[i] == nums[j]:
-                    ans += 1
+                        ans += 1
         return ans
                     
