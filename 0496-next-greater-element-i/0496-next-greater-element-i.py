@@ -14,7 +14,7 @@ class Solution:
                 if i not in ans:
                     ans[i] = -1
 
-        return [ v for k, v in sorted(ans.items(), key= lambda item: item[0])]
+        return [ v for k, v in sorted(ans.items()) ]
 
 
 '''
