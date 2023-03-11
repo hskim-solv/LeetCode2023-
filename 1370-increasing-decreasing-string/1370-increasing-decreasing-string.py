@@ -3,8 +3,8 @@ class Solution:
         res = ""
         s = deque(sorted(s))
 
-        ss = sorted(set(s))
-        rr = sorted(set(s), reverse=True)
+        ss = deque(sorted(set(s)))
+        rr = deque(sorted(set(s), reverse=True))
         while s:
             for sr in (ss,rr):
                 for ch in sr:
