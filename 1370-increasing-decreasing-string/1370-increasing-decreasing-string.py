@@ -1,20 +1,18 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        is_asc = True
         s = list(s)
+        s.sort()
+        ss = list(set(s))
+        ss.sort()
         while s:
-            box = ""
-            is_asc = not is_asc
-            s.sort(reverse = is_asc)
-            for ch in s[:]:
-                #print(res,box,ch,s)
-                if box == ch:
-                    continue
-                else:
+            for ch in ss:
+                if ch in s:
                     res += ch
-                    box = ch
                     s.remove(ch)
+            s.reverse()
+            ss.reverse()
+
                     
             
 
