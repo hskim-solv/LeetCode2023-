@@ -8,7 +8,9 @@ class Solution:
                 if ch in s:
                     res += ch
                     del s[s.index(ch)]
-            
+            for i in ss:
+                if i not in s:
+                    ss.remove(i)
             s = s[::-1]
             ss = ss[::-1]
 
