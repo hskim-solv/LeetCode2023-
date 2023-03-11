@@ -1,15 +1,15 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = sorted(s)
+        s = list(s)
         ss = sorted(set(s))
-
+        rr = ss.copy()
+        rr.reverse()
         while s:
-            for st in (ss,ss[::-1]):
-                for ch in st:
+            for sr in (ss,rr):
+                for ch in sr:
                     if ch in s:
                         res += ch
                         s.remove(ch)
                 s.reverse()
-
         return res    
