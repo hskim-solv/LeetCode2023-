@@ -1,7 +1,7 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = sorted(s)
+        s = sorted(deque(s))
         ss = sorted(set(s))
         rr = sorted(set(s), reverse=True)
         while s:
@@ -10,7 +10,6 @@ class Solution:
                     if ch in s:
                         res += ch
                         s.remove(ch)
-       
                 s.reverse()
 
         return res    
