@@ -1,8 +1,9 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = sorted(s)
+        s = list(s)
         ss = sorted(set(s))
+        st = reversed(ss.copy())
         while s:
             for ch in ss:
                 if ch in s:
