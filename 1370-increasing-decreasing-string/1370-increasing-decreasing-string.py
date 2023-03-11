@@ -4,13 +4,14 @@ class Solution:
         s = deque(sorted(s))
 
         ss = deque(sorted(set(s)))
-        rr = deque(sorted(set(s), reverse=True))
+
         while s:
-            for sr in (ss,rr):
-                for ch in sr:
-                    if ch in s:
-                        res += ch
-                        s.remove(ch)
-                s.reverse()
+
+            for ch in ss:
+                if ch in s:
+                    res += ch
+                    s.remove(ch)
+            s.reverse()
+            ss.reverse()
 
         return res    
