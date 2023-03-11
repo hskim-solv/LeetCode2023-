@@ -1,14 +1,16 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = list(s)
+        s = sorted(s)
         ss = sorted(set(s))
-        st = reversed(ss.copy())
+        rr = sorted(set(s), reverse=True)
         while s:
-            for ch in ss:
-                if ch in s:
-                    res += ch
-                    s.remove(ch)
-            s.reverse()
-            ss.reverse()
+            for sr in (ss,rr):
+                for ch in sr:
+                    if ch in s:
+                        res += ch
+                        s.remove(ch)
+       
+                s.reverse()
+
         return res    
