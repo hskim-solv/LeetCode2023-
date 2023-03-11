@@ -1,20 +1,16 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = list(s)
-        s.sort()
-        ss = list(set(s))
-        ss.sort()
+        s = sorted(s)
+        ss = sorted((set(s)))
         while s:
-            for ch in ss[:]:
+            for ch in ss:
                 if ch in s:
                     res += ch
-                    s.remove(ch)
-                else:
-                    ss.remove(ch)
+                    del s[s.index(ch)]
             
-            s.reverse()
-            ss.reverse()
+            s = s[::-1]
+            ss = ss[::-1]
 
                     
             
