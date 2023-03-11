@@ -6,10 +6,13 @@ class Solution:
         ss = list(set(s))
         ss.sort()
         while s:
-            for ch in ss:
+            for ch in ss[:]:
                 if ch in s:
                     res += ch
                     s.remove(ch)
+                else:
+                    ss.remove(ch)
+            
             s.reverse()
             ss.reverse()
 
