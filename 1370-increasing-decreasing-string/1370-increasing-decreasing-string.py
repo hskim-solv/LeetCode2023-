@@ -4,13 +4,14 @@ class Solution:
         s = sorted(s)
         ss = sorted((set(s)))
         while s:
-            for ch in ss:
+            for ch in ss[:]:
                 if ch in s:
                     res += ch
                     del s[s.index(ch)]
-            for i in ss:
-                if i not in s:
-                    ss.remove(i)
+                    if ch not in s:
+                        del ss[ss.index(ch)]
+                        
+
             s = s[::-1]
             ss = ss[::-1]
 
