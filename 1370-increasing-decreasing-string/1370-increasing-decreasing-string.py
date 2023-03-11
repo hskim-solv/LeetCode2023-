@@ -1,7 +1,8 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = sorted(deque(s))
+        s = deque(sorted(s))
+
         ss = sorted(set(s))
         rr = sorted(set(s), reverse=True)
         while s:
