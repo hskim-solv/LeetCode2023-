@@ -1,7 +1,7 @@
 class Solution:
     def sortString(self, s: str) -> str:
         res = ""
-        s = list(s)
+        s = sorted(s)
         ss = sorted(set(s))
         while s:
             for ch in ss:
