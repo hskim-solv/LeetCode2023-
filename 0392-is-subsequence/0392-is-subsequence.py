@@ -1,9 +1,10 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        l = len(s)
+        l = 0
         for i in s:
-                if i in t:
-                    l -= 1 
-                    t = t[t.index(i)+1:]
+            l += 1
+            if i in t:
+                l -= 1 
+                t = t[t.index(i)+1:]
         return l == 0
        
