@@ -5,6 +5,5 @@ class Solution:
                 if i in t:
                     l -= 1 
                     t = t[t.index(i)+1:]
-                    print(l)
-        return not l
+        return l == 0
        
