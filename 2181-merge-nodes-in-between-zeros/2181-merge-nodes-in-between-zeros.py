@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeNodes(self, head: Optional[ListNode], stack = 0) -> Optional[ListNode]:
+    def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         root = head
         while head.next:
             if head.next.val:
