@@ -5,14 +5,5 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.res = []
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return self.res
-        if root.left: 
-            self.inorderTraversal(root.left)
-        self.res.append(root.val)
-        if root.right: 
-            self.inorderTraversal(root.right)
-        return self.res
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
