@@ -7,10 +7,4 @@ class Solution:
     def dfs(self,nums,path,res):
         res.append(path)
         for i in range(len(nums)):
-            if path:
-                if path[-1] < nums[i]:
-                    self.dfs(nums[:i]+nums[i+1:],path+nums[i:i+1],res)
-                else:
-                    continue
-            else:
-                self.dfs(nums[:i]+nums[i+1:],path+nums[i:i+1],res)
+            self.dfs(nums[i+1:],path+nums[i:i+1],res)
