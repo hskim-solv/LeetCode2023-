@@ -4,11 +4,8 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         m, n = len(board), len(board[0])
-
         for i in range(m):
             row = [i]
-            
-
             box = board[i][:]
             for j in range(n):
                 cul = [j]
@@ -23,7 +20,6 @@ class Solution:
                 nv = list(set(product(row,cul)))
                 nv.remove((i,j))
                 nnv = sum([board[ii][jj] for ii,jj in nv])
-                #print(i,j,nnv,nv)
                 if box[j]:
                     if nnv not in [2,3]:
                         box[j]=0  
@@ -31,7 +27,7 @@ class Solution:
                     if nnv == 3:
                         box[j]=1
             if i > 0:
-                board[i-1] = pre_box[:]
+                board[i-1] = pre_box
             pre_box = box[:]
         board[-1] = pre_box
 
