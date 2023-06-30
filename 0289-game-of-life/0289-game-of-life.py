@@ -31,7 +31,7 @@ class Solution:
                     if nnv == 3:
                         box[j]=1
             if i > 0:
-                board[i-1] = pre_box
+                board[i-1] = pre_box[:]
             pre_box = box[:]
         board[-1] = pre_box
 
