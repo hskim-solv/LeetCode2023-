@@ -1,15 +1,13 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        res = []
-        total = reduce(lambda x, y: x * y, nums, 1)
-        for i in range(len(nums)):
-            if not total:
-                if not nums[i]:
-                    nnl = nums[:i] + nums[i+1:]
-                    if 0 not in nnl:
-                        res.append(reduce(lambda x, y: x * y, nnl, 1))
-                        continue
-                res.append(total)
-            else:
-                res.append(total//nums[i])
-        return res
+        z_count = nums.count(0)
+        if not z_count:
+            total = reduce(lambda x, y: x * y, nums, 1)
+            return [total//nums[i] for i in range(len(nums))]
+        elif z_count == 1:
+            i = nums.index(0)
+            res = [0] * len(nums)
+            res[i] = reduce(lambda x, y: x * y, nums[:i]+nums[i+1:], 1)
+            return res
+        else:
+            return [0] * len(nums)
