@@ -5,8 +5,6 @@ class Solution:
             return [total//nums[i] for i in range(len(nums))]
         elif nums.count(0) == 1:
             i = nums.index(0)
-            res = [0] * len(nums)
-            res[i] = reduce(lambda x, y: x * y, nums[:i]+nums[i+1:], 1)
             return [0] * i + [reduce(lambda x, y: x * y, nums[:i]+nums[i+1:], 1)] + [0] *(len(nums)-i-1)
         else:
             return [0] * len(nums)
