@@ -1,21 +1,32 @@
 class Trie:
 
     def __init__(self):
-        self.stack = []
+        self.root = {}
         
 
     def insert(self, word: str) -> None:
-        self.stack.append(word)
-
+        cur = self.root
+        for letter in word:
+            if letter not in cur:
+                cur[letter] = {}
+            cur = cur[letter]
+        cur['*'] =''
+        
     def search(self, word: str) -> bool:
-        if word in self.stack:
-            return True
+        cur = self.root
+        for letter in word:
+            if letter not in cur:
+                return False
+            cur = cur[letter]
+        return '*' in cur
 
     def startsWith(self, prefix: str) -> bool:
-        for word in self.stack:
-            if word.startswith(prefix):
-                return True
-
+        cur = self.root
+        for letter in prefix:
+            if letter not in cur:
+                return False
+            cur = cur[letter]
+        return True
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
