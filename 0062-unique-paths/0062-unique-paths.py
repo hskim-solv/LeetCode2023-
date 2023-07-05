@@ -7,5 +7,8 @@ class Solution:
         if n == 1:
             return 1
         if (m, n) not in self.d:
-            self.d[(m, n)] = self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
+            if m == n:
+                self.d[(m, n)] = 2*self.uniquePaths(m, n-1)
+            else:
+                self.d[(m, n)] = self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1)
         return self.d[(m, n)]
