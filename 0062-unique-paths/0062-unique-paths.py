@@ -1,6 +1,6 @@
 class Solution:
     def __init__(self):
-        self.d = {(1,1):1,(2,1):1,(2,2):2}
+        self.d = {(1,1):1}
     def uniquePaths(self, m: int, n: int) -> int:
         if n > m:
             m, n = n, m
