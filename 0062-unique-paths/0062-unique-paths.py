@@ -1,7 +1,6 @@
 class Solution:
     def __init__(self):
-        self.d = {(1,1):1,(2,1):1}
-    @cache
+        self.d = {(1,1):1,(2,1):1,(2,2):2}
     def uniquePaths(self, m: int, n: int) -> int:
         if n > m:
             m, n = n, m
