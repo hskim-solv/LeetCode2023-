@@ -3,11 +3,10 @@ class Solution:
         res = []
         length = 0
         for n, freq in Counter(nums).most_common():
-            diff = freq-length
-            if diff > 0:
+            if freq > length:
                 for i in range(length):
                     res[i].append(n)
-                for _ in range(diff):
+                for _ in range(freq-length):
                     res.append([n])
                 length = freq
             else:
