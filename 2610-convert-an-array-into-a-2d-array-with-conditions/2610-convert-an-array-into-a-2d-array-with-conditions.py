@@ -1,8 +1,7 @@
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
-        nums = Counter(nums).most_common()
         res = []
-        for n, freq in nums:
+        for n, freq in Counter(nums).most_common():
             if len(res) < freq:
                 for i in range(len(res)):
                     res[i].append(n)
