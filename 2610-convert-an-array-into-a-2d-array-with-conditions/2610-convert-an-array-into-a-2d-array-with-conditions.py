@@ -4,11 +4,11 @@ class Solution:
         res = []
         for n, freq in nums:
             if len(res) < freq:
-                diff = freq-len(res)
-                for _ in range(diff):
-                    res.append([n])
-                for i in range(freq-diff):
+                for i in range(len(res)):
                     res[i].append(n)
+                for _ in range(freq-len(res)):
+                    res.append([n])
+
             else:
                 for i in range(freq):
                     res[i].append(n)
