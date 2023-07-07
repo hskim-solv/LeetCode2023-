@@ -4,8 +4,12 @@ class Solution:
         res = []
         for n, freq in nums:
             if len(res) < freq:
-                for _ in range(freq-len(res)):
-                    res.append([])
-            for i in range(freq):
-                res[i].append(n)
+                diff = freq-len(res)
+                for _ in range(diff):
+                    res.append([n])
+                for i in range(freq-diff):
+                    res[i].append(n)
+            else:
+                for i in range(freq):
+                    res[i].append(n)
         return res
