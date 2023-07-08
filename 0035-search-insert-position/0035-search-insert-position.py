@@ -21,6 +21,6 @@ class Solution:
             else:
                 start = mid
                 if target <= nums[mid+1]:
-                    return mid+1
+                    return mid + 1
             mid = (start + end)//2
         return mid
