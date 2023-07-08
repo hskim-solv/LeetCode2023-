@@ -14,11 +14,11 @@ class Solution:
         while end - start > 1:
             if nums[mid] == target:
                 return mid
-            if nums[mid] > target:
+            elif nums[mid] > target:
                 end = mid
                 if nums[mid-1] < target:
                     return mid
-            elif nums[mid] < target:
+            else:
                 start = mid
                 if target <= nums[mid+1]:
                     return mid+1
