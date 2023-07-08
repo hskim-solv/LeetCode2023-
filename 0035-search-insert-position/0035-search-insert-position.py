@@ -1,12 +1,12 @@
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
+        if target <= nums[0]:
+            return 0
         length = len(nums)
         if target > nums[-1]:
             return length
         if target == nums[-1]:
             return length-1
-        if target <= nums[0]:
-            return 0
         if length == 2:
             return 1
         start, end = 0, length-1
