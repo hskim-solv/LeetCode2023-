@@ -14,5 +14,5 @@ class Solution:
                 mid = (start+end)//2
             else:
                 start = mid
-                mid = (start+end)//2+1
+                mid = (start+end)//2
         return -1
