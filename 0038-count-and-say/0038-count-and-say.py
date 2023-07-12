@@ -3,8 +3,8 @@ class Solution:
         if n == 1:
             return "1"
         ss = list(self.countAndSay(n-1))
-        head = ss[-1]
-        cnt = 0
+        head = ss.pop()
+        cnt = 1
         res = ""
         while ss:
             s = ss.pop()
