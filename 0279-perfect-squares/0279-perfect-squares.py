@@ -10,10 +10,12 @@ class Solution:
         lll= []
         while res < n:
             res += 1
-            for i in l:
+            for i in ll:
                 ni = n-i
-                for j in ll:
-                    if ni == j:
+                for j in l:
+                    if ni < j:
+                        continue
+                    elif ni == j:
                         return res
                     elif ni > j:
                         lll.append(i+j)
