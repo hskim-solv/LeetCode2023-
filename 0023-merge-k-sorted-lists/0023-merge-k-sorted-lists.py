@@ -8,7 +8,7 @@ class Solution:
         k = len(lists)
         l = []
         Node = ListNode(val=0,next=None)
-        head = ListNode(val=0,next=Node)
+        head = Node
         for i in range(k):
             if lists[i]:
                 l.append(lists[i].val)
@@ -21,8 +21,8 @@ class Solution:
                     l[idx] = lists[idx].next.val
                 else:
                     l[idx] = inf
-            Node.next = deepcopy(lists[idx])
+            Node.next = lists[idx]
             lists[idx] = lists[idx].next
             Node = Node.next
-        return head.next.next
+        return head.next
         
