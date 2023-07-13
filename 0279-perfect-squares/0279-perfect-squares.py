@@ -17,6 +17,5 @@ class Solution:
                         return res
                     elif ni > j:
                         lll.add(i+j)
-            #print(l,ll,lll)
             ll = lll
         return res
