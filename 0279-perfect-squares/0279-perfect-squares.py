@@ -14,7 +14,7 @@ class Solution:
                 ni = n-i
                 for j in l:
                     if ni < j:
-                        continue
+                        break
                     elif ni == j:
                         return res
                     elif ni > j:
