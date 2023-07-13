@@ -2,8 +2,6 @@ class Solution:
     def __init__(self):
         self.d = []
     def findTheLongestBalancedSubstring(self, s: str) -> int:
-        if len(set(s))==1:
-            return 0
         if s in self.d:
             return 0
         else:
