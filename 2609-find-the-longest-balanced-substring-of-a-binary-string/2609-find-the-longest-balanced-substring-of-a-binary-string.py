@@ -20,7 +20,7 @@ class Solution:
         if len(l) > 1:
             return max(map(self.findTheLongestBalancedSubstring,l))
         else:
-            if s[0]=='0'and s[-1]=='1' and s.count('1') == s.count('0'):
+            if s[0] == '0'and s[-1] == '1' and s.count('1') == s.count('0'):
                 return length
             if s in self.d:
                 return 0
