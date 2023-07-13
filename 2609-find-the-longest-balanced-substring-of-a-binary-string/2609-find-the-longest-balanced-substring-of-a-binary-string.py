@@ -4,6 +4,10 @@ class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
         if len(set(s))==1:
             return 0
+        if s in self.d:
+            return 0
+        else:
+            self.d.append(s)
         length = len(s)
         cnt = 0
         l = []
@@ -16,17 +20,14 @@ class Solution:
                 l.append("".join(tmp))
                 tmp = []
             if cnt >= length:
+                print(l,s)
                 break
         if len(l) > 1:
-            return max(map(self.findTheLongestBalancedSubstring,l))
-        else:
-            if s[0] == '0'and s[-1] == '1' and s.count('1') == s.count('0'):
+            return max(self.findTheLongestBalancedSubstring(ss) for ss in l)
+        if length % 2 == 0:
+            if length//2 == s[length//2:].count('1') == s[:length//2].count('0'):
                 return length
-            if s in self.d:
-                return 0
-            self.d.append(s)
-            return max(
-                        self.findTheLongestBalancedSubstring(s[1:]),
-                       self.findTheLongestBalancedSubstring(s[:-1]) 
-            )
-        
+        return max(
+                    self.findTheLongestBalancedSubstring(s[1:]),
+                   self.findTheLongestBalancedSubstring(s[:-1]) 
+                    )
