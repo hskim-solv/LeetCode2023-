@@ -1,19 +1,18 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        digits = {'1','2','3','4','5','6','7','8','9'}
         for row in board:
-            if self.isRowCul(row):
+            if self.isl(row):
                 return False
         for cul in zip(*board):
-            if self.isRowCul(cul):
+            if self.isl(cul):
                 return False
         for n in [0,3,6]:
             for m in [0,3,6]:
-                if self.isRowCul(board[n+0][m+0:m+3]+board[n+1][m+0:m+3]+board[n+2][m+0:m+3]):
+                if self.isl(board[n+0][m+0:m+3]+board[n+1][m+0:m+3]+board[n+2][m+0:m+3]):
                     return False
         return True
-    def isRowCul(self,rowcul: List[str]) -> bool:
-        for k,v in Counter(rowcul).items():
+    def isl(self,l: List[str]) -> bool:
+        for k,v in Counter(l).items():
             if k.isdigit():
                 if v != 1:
                     return True
