@@ -5,8 +5,9 @@ class Solution:
         if n in l:
             return res
         ll = l
-        lll= []
+        
         while res < n:
+            lll= []
             res += 1
             for i in ll:
                 ni = n-i
@@ -18,5 +19,4 @@ class Solution:
                     elif ni > j:
                         lll.append(i+j)
             ll = lll
-            lll = []
         return res
