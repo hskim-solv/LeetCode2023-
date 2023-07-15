@@ -4,18 +4,14 @@ class Solution:
         col = deque(zip(*matrix))
         row = deque(matrix)
         res += row.popleft()
-        i = 1
+        res += col.pop()[1:]
+        i = 2
         while row or col:
             div,mod = divmod(i,4)
 
             if col:
                 if mod==1:
-                    #print('111',col[-1],mod,div,res)
-                    if div:
-                        res += col.pop()[div:-div]
-                        #print(res)
-                    else:
-                        res += col.pop()[1:]
+                    res += col.pop()[div:-div]
                 elif mod == 3:
                     #print('333',col[0],mod,div,res)
                     res += reversed(col.popleft()[1+div:-1-div])
