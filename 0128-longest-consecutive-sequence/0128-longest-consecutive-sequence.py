@@ -5,7 +5,8 @@ class Solution:
         nums = sorted(set(nums))
 
         length = len(nums)
-        res = i = 0
+        res = 0
+        i = 0
         j = 1
         while j < length:
             if nums[j] - nums[i] == j - i:
