@@ -2,12 +2,12 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         # use DFS to parse the course structure
         self.graph = collections.defaultdict(list) # a graph for all courses
-        self.res = [] # start from empty
+        self.res = []
         for pair in prerequisites:
             self.graph[pair[0]].append(pair[1]) 
-        self.visited = [0 for x in range(numCourses)] # DAG detection 
-        for x in range(numCourses):
-            if not self.DFS(x):
+        self.visited = [0]*numCourses # DAG detection 
+        for node in range(numCourses):
+            if not self.DFS(node):
                 return []
              # continue to search the whole graph
         return self.res
