@@ -14,11 +14,10 @@ class Solution:
                 return n2-n1
         while tokens:
             token = tokens.pop()
-            if token.lstrip("-").isdecimal():
-                #print(token)
-                stack2.append(int(token))
-            else:
+            if token in ["+","-","*","/"]:
                 stack1.append(token)
+            else:
+                stack2.append(int(token))
             if len(stack2) > 1 and len(stack1) > 0:
                 n1 = stack2.pop()
                 n2 = stack2.pop()
