@@ -2,18 +2,19 @@ class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         results = []
         nums.sort()
-        
-        for i in range(len(nums)-3):
+        length = len(nums)-1
+        for i in range(length-2):
+            length -= 1
             if i == 0 or nums[i] != nums[i-1]:
-                threeResult = self.threeSum(nums[i+1:], target-nums[i])
+                threeResult = self.threeSum(nums[i+1:], target-nums[i],length)
                 for item in threeResult:
                     item.append(nums[i])
                     results.append(item)
+            
         return results
                 
-    def threeSum(self, nums: List[int], target: int) -> List[List[int]]:
+    def threeSum(self, nums: List[int], target: int,length: int) -> List[List[int]]:
         results = []
-        length = len(nums)-1
         for i in range(length-1):
             l, r = i + 1, length
             t = target - nums[i]
