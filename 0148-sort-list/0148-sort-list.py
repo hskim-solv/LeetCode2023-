@@ -8,7 +8,7 @@ class Solution:
         if not head or not head.next:
             return head
     
-        pre, slow, fast = None, head, head
+        slow, fast = head, head
         while fast and fast.next:
             pre, slow, fast = slow, slow.next, fast.next.next
         pre.next = None
