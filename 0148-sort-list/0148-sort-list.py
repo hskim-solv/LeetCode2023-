@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head or not head.next:
+        if not (head and head.next):
             return head
     
         slow, fast = head, head
