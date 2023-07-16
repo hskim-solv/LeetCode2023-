@@ -7,7 +7,8 @@ class Solution:
             if i == 0 or nums[i] != nums[i-1]:
                 threeResult = self.threeSum(nums[i+1:], target-nums[i])
                 for item in threeResult:
-                    results.append([nums[i]] + item)
+                    item.append(nums[i])
+                    results.append(item)
         return results
                 
     def threeSum(self, nums: List[int], target: int) -> List[List[int]]:
