@@ -9,16 +9,17 @@ class Solution:
         if not root:
             return []
         level = 0
-        res = defaultdict(list)
+        res = []
         q = deque([root])
         while q:
-            level += 1
+            
+            res.append([])
             for _ in range(len(q)):
                 node = q.pop()
                 res[level].append(node.val)
                 if node.left: q.appendleft(node.left)
                 if node.right: q.appendleft(node.right)
-            if level %2 ==0:
+            if level % 2:
                 res[level].reverse()
-            
-        return res.values()
+            level += 1
+        return res
