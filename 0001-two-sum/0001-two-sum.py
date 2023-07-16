@@ -10,5 +10,5 @@ class Solution:
                 l += 1
             else:
                 l = nums.index(sorted_nums[l])
-                nums[l] = None
+                nums[l] -= 1
                 return [l,nums.index(sorted_nums[r])]
