@@ -5,11 +5,11 @@ class Solution:
         stack1=[]
         stack2=[]
         def cal(n1,n2,op):
-            if op == '*':
+            if op == ops[2]:
                 return n2*n1
-            elif op =='+':
+            elif op ==ops[0]:
                 return n2+n1
-            elif op == '/':
+            elif op == ops[3]:
                 return trunc(n2/n1)
             else:
                 return n2-n1
@@ -27,7 +27,6 @@ class Solution:
                     n2 = stack2.pop()
                     op = stack1.pop()
                     stack2.append(cal(int(token),n2,op))
-
                 else:
                     stack2.append(int(token))
         return stack2[0]
