@@ -12,7 +12,7 @@ class Solution:
                 res = max(res,j - i)
                 j += 1
             else:
-                i += 1
+                i = j
                 j = i+1
         return res+1
         
