@@ -9,6 +9,6 @@ class Solution:
             elif s < target:
                 l += 1
             else:
-                res = [nums.index(sorted_nums[l])]
-                nums[res[0]] = None
-                return res+[nums.index(sorted_nums[r])]
+                l = nums.index(sorted_nums[l])
+                nums[l] = None
+                return [l,nums.index(sorted_nums[r])]
