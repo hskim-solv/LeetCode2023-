@@ -5,8 +5,8 @@ class Solution:
         nums = sorted(set(nums))
 
         length = len(nums)
-        res = i = j = 0
-        j += 1
+        res = i = 0
+        j = 1
         while j < length:
             if nums[j] - nums[i] == j - i:
                 res = max(res,j - i)
