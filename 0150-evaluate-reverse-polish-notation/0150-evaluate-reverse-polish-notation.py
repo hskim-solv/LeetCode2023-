@@ -15,18 +15,21 @@ class Solution:
                 return n2-n1
         while tokens:
             token = tokens.pop()
-            if len(stack2) > 1 and token in ops:
-                n1 = stack2.pop()
-                n2 = stack2.pop()
-                stack2.append(cal(n1,n2,token))
-            elif token in ops:
-                stack1.append(token)
-            elif len(stack1) > 0 and len(stack2) > 0:
-                n2 = stack2.pop()
-                op = stack1.pop()
-                stack2.append(cal(int(token),n2,op))
+            if token in ops:
+                if len(stack2) > 1:
+                    n1 = stack2.pop()
+                    n2 = stack2.pop()
+                    stack2.append(cal(n1,n2,token))
+                else:
+                    stack1.append(token)
             else:
-                stack2.append(int(token))
+                if len(stack1) > 0 and len(stack2) > 0:
+                    n2 = stack2.pop()
+                    op = stack1.pop()
+                    stack2.append(cal(int(token),n2,op))
+
+                else:
+                    stack2.append(int(token))
         return stack2[0]
                 
         
