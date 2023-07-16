@@ -13,10 +13,10 @@ class Solution:
             pre, slow, fast = slow, slow.next, fast.next.next
         pre.next = None
 
-        return self.merge(*map(self.sortList, (head, slow)))
+        return self.merge(self.sortList(head), self.sortList(slow))
         
     def merge(self, h1, h2):
-        dummy = tail = ListNode(None)
+        dummy = tail = ListNode()
         while h1 and h2:
             if h1.val < h2.val:
                 tail.next, tail, h1 = h1, h1, h1.next
