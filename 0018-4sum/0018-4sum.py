@@ -2,14 +2,15 @@ class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         results = []
         nums.sort()
-        length = len(nums)-1
-        for i in range(length-2):
-            length -= 1
+        length = len(nums)-2
+        for i in range(length-1):
+            
             if i == 0 or nums[i] != nums[i-1]:
                 threeResult = self.threeSum(nums[i+1:], target-nums[i],length)
                 for item in threeResult:
                     item.append(nums[i])
                     results.append(item)
+            length -= 1
             
         return results
                 
