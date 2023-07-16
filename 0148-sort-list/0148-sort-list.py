@@ -6,11 +6,10 @@
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head and head.next:
-            slow, fast = head, head
+            slow = fast = head
             while fast and fast.next:
                 pre, slow, fast = slow, slow.next, fast.next.next
             pre.next = None
-
             return self.merge(self.sortList(head), self.sortList(slow))
         return head
         
