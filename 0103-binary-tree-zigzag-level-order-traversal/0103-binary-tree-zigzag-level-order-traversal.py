@@ -9,7 +9,7 @@ class Solution:
         if not root:
             return []
         evenodd = True
-        res = []
+        res = deque([])
         q = deque([root])
         while q:
             res.append(deque([]))
