@@ -2,6 +2,7 @@ class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         results = []
         nums.sort()
+        
         for i in range(len(nums)-3):
             if i == 0 or nums[i] != nums[i-1]:
                 threeResult = self.threeSum(nums[i+1:], target-nums[i])
@@ -11,9 +12,9 @@ class Solution:
                 
     def threeSum(self, nums: List[int], target: int) -> List[List[int]]:
         results = []
-        nums.sort()
-        for i in range(len(nums)-2):
-            l = i + 1; r = len(nums) - 1
+        length = len(nums)-1
+        for i in range(length-1):
+            l, r = i + 1, length
             t = target - nums[i]
             if i == 0 or nums[i] != nums[i-1]:
                 while l < r:
