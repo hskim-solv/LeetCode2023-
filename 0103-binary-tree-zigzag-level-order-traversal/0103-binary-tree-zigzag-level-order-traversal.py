@@ -13,9 +13,10 @@ class Solution:
         q = deque([root])
         while q:
             res.append(deque([]))
+            evenodd = level % 2
             for _ in range(len(q)):
                 node = q.pop()
-                if level % 2:
+                if evenodd:
                     res[level].appendleft(node.val)
                 else:
                     res[level].append(node.val)
