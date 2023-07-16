@@ -19,12 +19,12 @@ class Solution:
                 n1 = stack2.pop()
                 n2 = stack2.pop()
                 stack2.append(cal(n1,n2,token))
-            elif len(stack1) > 0 and len(stack2) > 0 and token not in ops:
+            elif token in ops:
+                stack1.append(token)
+            elif len(stack1) > 0 and len(stack2) > 0:
                 n2 = stack2.pop()
                 op = stack1.pop()
                 stack2.append(cal(int(token),n2,op))
-            elif token in ops:
-                stack1.append(token)
             else:
                 stack2.append(int(token))
         return stack2[0]
