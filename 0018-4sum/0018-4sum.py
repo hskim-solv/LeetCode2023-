@@ -4,9 +4,9 @@ class Solution:
         nums.sort()
         length = len(nums)-1
         for i in range(length-2):
-
+            length -= 1
             if i == 0 or nums[i] != nums[i-1]:
-                threeResult = self.threeSum(nums[i+1:], target-nums[i],length-(i+1))
+                threeResult = self.threeSum(nums[i+1:], target-nums[i],length)
                 for item in threeResult:
                     item.append(nums[i])
                     results.append(item)
