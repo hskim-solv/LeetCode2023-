@@ -13,17 +13,13 @@ class Solution:
         q = deque([root])
         while q:
             res.append(deque([]))
-            if level % 2:
-                for _ in range(len(q)):
-                    node = q.pop()
+            for _ in range(len(q)):
+                node = q.pop()
+                if level % 2:
                     res[level].appendleft(node.val)
-                    if node.left: q.appendleft(node.left)
-                    if node.right: q.appendleft(node.right)
-            else:
-                for _ in range(len(q)):
-                    node = q.pop()
+                else:
                     res[level].append(node.val)
-                    if node.left: q.appendleft(node.left)
-                    if node.right: q.appendleft(node.right)
+                if node.left: q.appendleft(node.left)
+                if node.right: q.appendleft(node.right)
             level += 1
         return res
