@@ -23,9 +23,9 @@ class Solution:
                 n1 = stack2.pop()
                 n2 = stack2.pop()
                 op = stack1.pop()
-                print(n1,n2,op)
+                #print(n1,n2,op)
                 stack2.append(cal(n1,n2,op))
-        print(stack2)
+        #print(stack2)
         return stack2[0]
                 
         
