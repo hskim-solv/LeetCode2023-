@@ -6,13 +6,13 @@ class Solution:
         nums.sort()
         length = len(nums)
         i,j = 0,1
-        res = 1
+        res = 0
         while j < length:
             if nums[j] - nums[i] == j - i:
-                res = max(res,1+j - i)
+                res = max(res,j - i)
                 j += 1
             else:
                 i += 1
                 j = i+1
-        return res
+        return res+1
         
