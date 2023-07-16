@@ -5,15 +5,14 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not (head and head.next):
-            return head
-    
-        slow, fast = head, head
-        while fast and fast.next:
-            pre, slow, fast = slow, slow.next, fast.next.next
-        pre.next = None
+        if head and head.next:
+            slow, fast = head, head
+            while fast and fast.next:
+                pre, slow, fast = slow, slow.next, fast.next.next
+            pre.next = None
 
-        return self.merge(self.sortList(head), self.sortList(slow))
+            return self.merge(self.sortList(head), self.sortList(slow))
+        return head
         
     def merge(self, h1, h2):
         dummy = tail = ListNode()
