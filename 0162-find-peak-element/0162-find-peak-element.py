@@ -1,6 +1,5 @@
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
-        middle = len(nums)//2
         def find(nums):
             if len(nums)<3:
                 return max(nums)
