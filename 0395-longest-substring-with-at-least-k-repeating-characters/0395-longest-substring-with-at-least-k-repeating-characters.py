@@ -5,8 +5,9 @@ class Solution:
         if k > len(s): return 0
         
         res = 0
+        length = len(s)
         for key,v in Counter(s).items():
-            if res ==len(s):
+            if res ==length:
                 return res
             if v < k:
                 return max(self.longestSubstring(ss,k) for ss in s.split(key))
