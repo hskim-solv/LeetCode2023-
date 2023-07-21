@@ -1,6 +1,6 @@
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
-        #if k > len(s): return 0
+        if k > len(s): return 0
         res, length = 0, len(s)
         while res < length:
             for key,v in Counter(s).items():
