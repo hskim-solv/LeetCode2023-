@@ -5,7 +5,7 @@ class Solution:
         res = 0
         for key,v in Counter(s).items():
             if v < k:
-                return max(*[ self.longestSubstring(ss,k) for ss in s.split(key)])
+                return max(self.longestSubstring(ss,k) for ss in s.split(key))
             else:
                 res += v
         return res
