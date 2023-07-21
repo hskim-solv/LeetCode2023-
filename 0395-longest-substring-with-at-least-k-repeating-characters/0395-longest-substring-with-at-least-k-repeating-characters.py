@@ -4,6 +4,6 @@ class Solution:
         while res < length:
             for key,v in Counter(s).items():
                 if v < k:
-                    return max(self.longestSubstring(ss,k) if k <= len(ss) else 0 for ss in s.split(key) )
+                    return max(0 if k > len(ss) else self.longestSubstring(ss,k) for ss in s.split(key) )
                 res += v
         return res
