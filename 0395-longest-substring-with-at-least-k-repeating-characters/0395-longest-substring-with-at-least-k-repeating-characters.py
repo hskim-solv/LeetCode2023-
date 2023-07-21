@@ -6,6 +6,8 @@ class Solution:
         
         res = 0
         for key,v in Counter(s).items():
+            if res ==len(s):
+                return res
             if v < k:
                 return max(self.longestSubstring(ss,k) for ss in s.split(key))
             res += v
