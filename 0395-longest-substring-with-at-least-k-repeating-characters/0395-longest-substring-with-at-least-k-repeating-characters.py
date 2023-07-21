@@ -1,7 +1,7 @@
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
         if k > len(s): return 0
-        if k == 1: return len(s)
+        #if k == 1: return len(s)
         res, length = 0, len(s)
         while res < length:
             for key,v in Counter(s).items():
