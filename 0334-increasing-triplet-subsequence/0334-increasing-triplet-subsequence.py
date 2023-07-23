@@ -25,7 +25,7 @@ class Solution:
             
         mx1 = max(nums)
         j = nums.index(mx1)
-        if len(nums[:j+1]) < 3:
+        if len(set(nums[:j+1])) < 3:
             nj=nums[j]
             del nums[j]
             while 0 < j and nj == nums[j]:
