@@ -35,7 +35,7 @@ class Solution:
         else:
             if min(nums[:j]) < mx1:
                 i = nums.index(min(nums[:j]))
-                if len(nums[i:j+1]) < 3:
+                if len(set(nums[i:j+1])) < 3:
                     #print(nums,'ij')
                     return any([self.increasingTriplet(nums[:i]+nums[i+1:j+1]),self.increasingTriplet(nums[i:])])
                 elif mn1 < max(nums[i+1:k]):
