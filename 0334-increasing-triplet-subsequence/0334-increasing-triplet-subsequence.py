@@ -2,35 +2,31 @@ class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         if len(set(nums)) < 3:
             return False
-        mn1 = min(nums)
-        
+
         i = nums.index(min(nums))
-        #print(mn1,i,len(nums))
+        #print(i,nums)
         if len(set(nums[i:])) < 3:
-            #print(mn1,i,len(nums))
-            ni = nums[i]
+            while i+1 < len(nums) and nums[i] == nums[i+1]:
+                #print(nums)
+                del nums[i+1]
             del nums[i]
-            while i < len(nums) and ni == nums[i]:
-                del nums[i]
-            i = nums.index(min(nums))
             return self.increasingTriplet(nums)
+    
         else:
-            if mn1 < max(nums[i+1:]):
+            if nums[i] < max(nums[i+1:]):
                 k = nums.index(max(nums[i+1:]))
                 if len(set(nums[i:k+1])) < 3:
                     #print(nums,'k')
                     return any([self.increasingTriplet(nums[i:k]+nums[k+1:]),self.increasingTriplet(nums[:k+1])])
-                elif mn1 < max(nums[i+1:k]):
+                elif nums[i] < max(nums[i+1:k]):
                     return True
             
         mx1 = max(nums)
         j = nums.index(mx1)
         if len(set(nums[:j+1])) < 3:
-            nj=nums[j]
+            while j < len(nums) and nums[j] == nums[j+1]:
+                del nums[j+1]
             del nums[j]
-            while 0 < j and nj == nums[j]:
-                del nums[j]
-            #print(nums,'j')
             return self.increasingTriplet(nums)
         else:
             if min(nums[:j]) < mx1:
