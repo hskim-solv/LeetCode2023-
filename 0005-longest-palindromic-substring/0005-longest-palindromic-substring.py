@@ -4,15 +4,14 @@ class Solution:
         length = len(s)-1
         for i in range(length):
             j = length
-
             while len(res) <= j-i:
                 
                 if s[i] == s[j]:
-                    p3, p4 = i+1, j-1
-                    if j-i < 5:
-                        if s[p3] == s[p4]:
-                            res = s[i:j+1]
-                            break
+                    if j-i < 3:
+                        res = s[i:j+1]
+                        break
+                    p3, p4 = i, j
+
                     mid, mod = divmod(j-i, 2)
                     mid += i
                     if mod:
