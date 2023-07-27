@@ -8,12 +8,12 @@ class Solution:
                 j -= 1
                 if s[i] == s[j]:
                     mid, mod = divmod(j-i, 2)
+                    mid += i
                     if mod:
-                        p1, p2 = i+mid, i+mid+1
+                        p1, p2 = mid, mid+1
                     else:
-                        p1,p2 = i+mid-1,i+mid+1
+                        p1, p2 = mid-1,mid+1
                     while s[p1] == s[p2]:
-                        #print(i,p1,p2,j)
                         if p1 <= i:
                             res = s[i:j+1]
                             break
