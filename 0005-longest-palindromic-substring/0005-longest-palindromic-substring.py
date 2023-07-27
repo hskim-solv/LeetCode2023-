@@ -2,7 +2,6 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = s[0]
         length = len(s)-1
-        mid = length // 2
         for i in range(length):
             j = length
 
