@@ -18,7 +18,7 @@ class Solution:
                             break
 
                 j -= 1
-                
+            
         if res:
             return res
         return s[0]
