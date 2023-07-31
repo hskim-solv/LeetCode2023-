@@ -18,24 +18,24 @@ class Solution:
                 if (a,b) in d:
                     continue
                 init = False
-                if inf in (a,b):
-                    if a == inf:
-                        for k in range(j+1,len(points)):
-                            if b == points[k][1]:
-                                if init:
-                                    d[(a,b)] += 1
-                                else:
-                                    d[(a,b)] = 3
-                                    init = True
-                            
-                    else:
-                        for k in range(j+1,len(points)):
-                            if a == points[k][0]:
-                                if init:
-                                    d[(a,b)] += 1
-                                else:
-                                    d[(a,b)] = 3
-                                    init = True
+                
+                if a == inf:
+                    for k in range(j+1,len(points)):
+                        if b == points[k][1]:
+                            if init:
+                                d[(a,b)] += 1
+                            else:
+                                d[(a,b)] = 3
+                                init = True
+
+                elif b == inf:
+                    for k in range(j+1,len(points)):
+                        if a == points[k][0]:
+                            if init:
+                                d[(a,b)] += 1
+                            else:
+                                d[(a,b)] = 3
+                                init = True
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
                     if math.isclose(yyy, b+a*xxx):
