@@ -12,11 +12,7 @@ class Solution:
             return a, p1[1]-a*p1[0]
         
         d = defaultdict(int)
-        a = inf
-        b = inf
         for i in range(len(points)-2):
-            if math.isclose(points[i][1], b+a*points[i][0]):
-                continue
             for j in range(i+1,len(points)-1):
                 a, b = s(points[i],points[j])
                 if (a,b) in d:
