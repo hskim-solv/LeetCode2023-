@@ -12,30 +12,34 @@ class Solution:
             return a, p1[1]-a*p1[0]
         
         d = defaultdict(int)
+        a = inf
+        b = inf
         for i in range(len(points)-2):
+            if math.isclose(points[i][1], b+a*points[i][0]):
+                continue
             for j in range(i+1,len(points)-1):
                 a, b = s(points[i],points[j])
                 if (a,b) in d:
                     continue
                 init = False
-                
-                if a == inf:
-                    for k in range(j+1,len(points)):
-                        if b == points[k][1]:
-                            if init:
-                                d[(a,b)] += 1
-                            else:
-                                d[(a,b)] = 3
-                                init = True
-
-                elif b == inf:
-                    for k in range(j+1,len(points)):
-                        if a == points[k][0]:
-                            if init:
-                                d[(a,b)] += 1
-                            else:
-                                d[(a,b)] = 3
-                                init = True
+                if inf in (a,b):
+                    if a == inf:
+                        for k in range(j+1,len(points)):
+                            if b == points[k][1]:
+                                if init:
+                                    d[(a,b)] += 1
+                                else:
+                                    d[(a,b)] = 3
+                                    init = True
+                            
+                    else:
+                        for k in range(j+1,len(points)):
+                            if a == points[k][0]:
+                                if init:
+                                    d[(a,b)] += 1
+                                else:
+                                    d[(a,b)] = 3
+                                    init = True
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
                     if math.isclose(yyy, b+a*xxx):
