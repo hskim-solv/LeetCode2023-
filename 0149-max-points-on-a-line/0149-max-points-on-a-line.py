@@ -21,13 +21,33 @@ class Solution:
                 a, b = s(points[i],points[j])
                 if (a,b) in d:
                     continue
+                init = False
+                if inf in (a,b):
+                    if a == inf:
+                        for k in range(j+1,len(points)):
+                            if b == points[k][1]:
+                                if init:
+                                    d[(a,b)] += 1
+                                else:
+                                    d[(a,b)] = 3
+                                    init = True
+                            
+                    else:
+                        for k in range(j+1,len(points)):
+                            if a == points[k][0]:
+                                if init:
+                                    d[(a,b)] += 1
+                                else:
+                                    d[(a,b)] = 3
+                                    init = True
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
-                    if (a,b) == (inf,yyy) or (a,b) == (xxx,inf) or math.isclose(yyy, b+a*xxx):
-                        if (a,b) in d:
+                    if math.isclose(yyy, b+a*xxx):
+                        if init:
                             d[(a,b)] += 1
                         else:
                             d[(a,b)] = 3
+                            init = True
         if d:
             return max(d.values())
         return 2
