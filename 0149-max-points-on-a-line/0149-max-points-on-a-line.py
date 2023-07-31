@@ -21,23 +21,11 @@ class Solution:
                     continue
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
-                    if math.isclose(yyy, b+a*xxx):
+                    if (a,b) == (inf,yyy) or (a,b) == (xxx,inf) or math.isclose(yyy, b+a*xxx):
                         if (a,b) not in d:
                             d[(a,b)] = 3
                         else:
                             d[(a,b)] += 1
-                    elif a == inf:
-                        if b == yyy:
-                            if (a,b) not in d:
-                                d[(a,b)] = 3
-                            else:
-                                d[(a,b)] += 1
-                    elif b == inf:
-                        if a == xxx:
-                            if (a,b) not in d:
-                                d[(a,b)] = 3
-                            else:
-                                d[(a,b)] += 1
         if d:
             return max(d.values())
         return 2
