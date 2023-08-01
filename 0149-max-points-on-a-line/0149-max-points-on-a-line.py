@@ -11,7 +11,6 @@ class Solution:
             a = (p2[1]-p1[1])/(p2[0]-p1[0])
             return a, p1[1]-a*p1[0]
         res =0
-        d = defaultdict(int)
         for i in range(len(points)-2):
             d = defaultdict(int)
             for j in range(i+1,len(points)-1):
