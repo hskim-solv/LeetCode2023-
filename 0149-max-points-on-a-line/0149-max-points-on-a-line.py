@@ -14,6 +14,6 @@ class Solution:
             for j in range(i+1,len(points)):
                 d[slope(points[i],points[j])] += 1
             if d:
-                res = max(res,*d.values())
+                res = max(res,max(d.values()))
         return res + 1
      
