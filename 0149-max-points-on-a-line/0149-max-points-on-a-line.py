@@ -16,7 +16,8 @@ class Solution:
             for j in range(i+1,len(points)-1):
                 d = defaultdict(int)
                 a, b = s(points[i],points[j])
-
+                if (a,b) in d:
+                    continue
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
                     if (a == inf and b==yyy) or (a == xxx and b == inf) or math.isclose(yyy, b+a*xxx):
