@@ -17,16 +17,12 @@ class Solution:
                 a, b = s(points[i],points[j])
                 if (a,b) in d:
                     continue
-                init = False
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
                     if (a == inf and b==yyy) or (a == xxx and b == inf) or math.isclose(yyy, b+a*xxx):
-                        if init:
-                            d[(a,b)] += 1
-                        else:
-                            d[(a,b)] = 3
-                            init = True
+                        d[(a,b)] += 1
+
         if d:
-            return max(d.values())
+            return max(d.values())+2
         return 2
      
