@@ -1,6 +1,6 @@
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
-        if len(points) < 3:
+        if len(points) <= 2:
             return len(points)
         
         def s(p1,p2):
@@ -18,27 +18,9 @@ class Solution:
                 if (a,b) in d:
                     continue
                 init = False
-                
-                if a == inf:
-                    for k in range(j+1,len(points)):
-                        if b == points[k][1]:
-                            if init:
-                                d[(a,b)] += 1
-                            else:
-                                d[(a,b)] = 3
-                                init = True
-
-                elif b == inf:
-                    for k in range(j+1,len(points)):
-                        if a == points[k][0]:
-                            if init:
-                                d[(a,b)] += 1
-                            else:
-                                d[(a,b)] = 3
-                                init = True
                 for k in range(j+1,len(points)):
                     xxx,yyy = points[k]
-                    if math.isclose(yyy, b+a*xxx):
+                    if (a == inf and b==yyy) or (a == xxx and b == inf) or math.isclose(yyy, b+a*xxx):
                         if init:
                             d[(a,b)] += 1
                         else:
