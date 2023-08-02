@@ -3,6 +3,6 @@ class Solution:
         n = len(nums)
         res = 0
         for i in range(n):
-            if n % (i+1) == 0:
+            if not n % (i+1):
                 res += nums[i]**2
         return res
