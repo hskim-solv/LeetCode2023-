@@ -8,11 +8,11 @@ class Solution:
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n == 1:
       return [TreeNode()]
-    if n % 2 == 0:
-      return []
 
     ret = []
-    for i in range(1, n, 2):
-        ret += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i - 1) for l in self.allPossibleFBT(i) ]
+    i = 1
+    n = n - 1
+    for i in range(1, n+1, 2):
+        ret += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i) for l in self.allPossibleFBT(i) ]
 
     return ret
