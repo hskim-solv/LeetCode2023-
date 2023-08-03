@@ -32,8 +32,8 @@ class Solution:
           ret.append(
             
             TreeNode(
-          left=l,
-          right=r
+          left=left,
+          right=right
           )
           
           )
