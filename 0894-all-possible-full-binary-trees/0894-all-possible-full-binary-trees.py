@@ -8,6 +8,7 @@ class Solution:
   def __init__(self):
     self.cache = defaultdict(list)
     self.cache[1].append(TreeNode())
+    self.cache[3].append(TreeNode(left=TreeNode(),right=TreeNode()))
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n in self.cache:
       return self.cache[n]
