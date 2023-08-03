@@ -5,12 +5,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-  @cache
+  def __init__(self):
+    self.cache = defaultdict(list)
+    self.cache[1].append(TreeNode())
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
-    if n == 1:
-      return [TreeNode()]
-    ret = []
+    if n in self.cache:
+      return self.cache[n]
     for i in range(1, n, 2):
-        ret += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i -1) for l in self.allPossibleFBT(i) ]
-
-    return ret
+        self.cache[n] += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i -1) for l in self.allPossibleFBT(i) ]
+    return self.cache[n]
