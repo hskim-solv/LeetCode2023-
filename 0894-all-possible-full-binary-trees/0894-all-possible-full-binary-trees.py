@@ -18,7 +18,10 @@ class Solution:
     ret = []
     for i in range(1, n, 2):
       for left in self.allPossibleFBT(i):
-        l = self.clone(left)
+        if i <= 3:
+          l = left
+        else:
+          l = self.clone(left)
         for right in self.allPossibleFBT(n - i - 1):
 
           
