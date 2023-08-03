@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+  @cache
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n == 1:
       return [TreeNode()]
