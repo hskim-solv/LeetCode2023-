@@ -14,14 +14,12 @@ class Solution:
     return new_tree
   
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
-    if n % 2 == 0:
-      return []
-    elif n == 1:
+    if n == 1:
       return [TreeNode()]
     ret = []
-    for i in range(2, n + 1, 2):
-      left_branch = self.allPossibleFBT(i - 1)
-      right_branch = self.allPossibleFBT(n - i)
+    for i in range(1, n, 2):
+      left_branch = self.allPossibleFBT(i)
+      right_branch = self.allPossibleFBT(n - i - 1)
       for left_count, left in enumerate(left_branch, 1):
         for right_count, right in enumerate(right_branch, 1):
           tree = TreeNode()
