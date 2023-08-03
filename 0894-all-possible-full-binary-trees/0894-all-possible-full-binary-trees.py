@@ -8,6 +8,8 @@ class Solution:
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n == 1:
       return [TreeNode()]
+    if n % 2 == 0:
+      return []
 
     ret = []
     for i in range(1, n, 2):
