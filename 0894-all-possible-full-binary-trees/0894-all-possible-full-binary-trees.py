@@ -17,14 +17,15 @@ class Solution:
       return [TreeNode(left=TreeNode(),right=TreeNode())]
     ret = []
     for i in range(1, n, 2):
-      for left_count, left in enumerate(self.allPossibleFBT(i), 1):
-        for right_count, right in enumerate(self.allPossibleFBT(n - i - 1), 1):
+      for left in self.allPossibleFBT(i):
+        l = self.clone(left)
+        for right in self.allPossibleFBT(n - i - 1):
 
           
           ret.append(
             
             TreeNode(
-          left=self.clone(left),
+          left=l,
           right=self.clone(right)
           )
           
