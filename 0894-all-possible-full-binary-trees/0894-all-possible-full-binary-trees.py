@@ -8,8 +8,7 @@ class Solution:
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n == 1:
       return [TreeNode()]
-    if n == 3:
-      return [TreeNode(left=TreeNode(),right=TreeNode())]
+
     ret = []
     for i in range(1, n, 2):
         ret += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i - 1) for l in self.allPossibleFBT(i) ]
