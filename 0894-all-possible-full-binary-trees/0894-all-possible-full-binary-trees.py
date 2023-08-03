@@ -23,13 +23,17 @@ class Solution:
         else:
           l = self.clone(left)
         for right in self.allPossibleFBT(n - i - 1):
+          if n - i - 1 <= 3:
+            r = right
+          else:
+            r = self.clone(right)
 
           
           ret.append(
             
             TreeNode(
           left=l,
-          right=self.clone(right)
+          right=r
           )
           
           )
