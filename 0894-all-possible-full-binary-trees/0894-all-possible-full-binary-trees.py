@@ -12,5 +12,5 @@ class Solution:
         if n in self.cache:
             return self.cache[n]
         for i in range(n, -1, -2):
-            self.cache[n] += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i -1) for l in self.allPossibleFBT(i) ]
+            self.cache[n] += [ TreeNode(left=l,right=r) for r in self.allPossibleFBT(n - i - 1) for l in self.allPossibleFBT(i) ]
         return self.cache[n]
