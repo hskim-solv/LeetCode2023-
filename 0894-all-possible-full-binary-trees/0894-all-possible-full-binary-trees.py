@@ -5,11 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-  def clone(self, tree: TreeNode) -> TreeNode:
-    if not tree:
-      return None
-    return TreeNode(left=self.clone(tree.left),right=self.clone(tree.right))
-  
   def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
     if n == 1:
       return [TreeNode()]
