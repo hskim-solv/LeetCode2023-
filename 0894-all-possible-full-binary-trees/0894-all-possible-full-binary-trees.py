@@ -18,12 +18,12 @@ class Solution:
     ret = []
     for i in range(1, n, 2):
       for left in self.allPossibleFBT(i):
-        if i <= 5:
+        if i <= 7:
           l = left
         else:
           l = self.clone(left)
         for right in self.allPossibleFBT(n - i - 1):
-          if n - i - 1 <= 5:
+          if n - i - 1 <= 7:
             r = right
           else:
             r = self.clone(right)
