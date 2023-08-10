@@ -2,12 +2,12 @@
  * @param {Function[]} functions
  * @return {Function}
  */
-var compose = function(functions) {
-	if (functions.length === 0) {
+var compose = function(fns) {
+	if (fns.length === 0) {
     return function(x) { return x; };
   }
 
-  return functions.reduceRight(function(prevFn, nextFn) {
+  return fns.reduceRight(function(prevFn, nextFn) {
     return function(x) {
       return nextFn(prevFn(x));
     };
