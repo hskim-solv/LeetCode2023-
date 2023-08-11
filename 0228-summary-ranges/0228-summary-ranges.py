@@ -5,7 +5,7 @@ class Solution:
         res = []
         tmp = [nums.pop(0),None]
         for n in nums+[None]:
-            if tmp[0] + 1 == n or (tmp[-1] and tmp[-1] + 1 == n):
+            if (tmp[-1] and tmp[-1] + 1 == n) or tmp[0] + 1 == n:
                 tmp[-1] = n
             else:
                 if tmp[-1]:
