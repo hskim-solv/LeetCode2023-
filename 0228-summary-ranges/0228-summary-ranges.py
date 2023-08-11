@@ -4,7 +4,8 @@ class Solution:
             return []
         res = []
         tmp = [nums.pop(0),None]
-        for n in nums+[None]:
+        nums.append(None)
+        for n in nums:
             if tmp[0] + 1 == n or tmp[-1] and tmp[-1] + 1 == n:
                 tmp[-1] = n
             else:
