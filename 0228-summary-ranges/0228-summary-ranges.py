@@ -3,20 +3,15 @@ class Solution:
         if not nums:
             return []
         res = []
-        tmp = [nums.pop(0)]
-        for n in nums:
-            if tmp[-1]+1 == n:
-                tmp.append(n)
+        tmp = [nums.pop(0),None]
+        for n in nums+[None]:
+            if tmp[0] + 1 == n or (tmp[-1] and tmp[-1] + 1 == n):
+                tmp[-1] = n
             else:
-                if len(tmp) > 1:
+                if tmp[-1]:
                     res.append("->".join([str(tmp[0]),str(tmp[-1])]))
                 else:
                     res.append(str(tmp[0]))
-                tmp = []
-                tmp.append(n)
-        if tmp:
-            if len(tmp) > 1:
-                res.append("->".join([str(tmp[0]),str(tmp[-1])]))
-            else:
-                res.append(str(tmp[0]))
+                tmp = [n, None]
+
         return res
