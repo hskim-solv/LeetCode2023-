@@ -5,7 +5,7 @@ class Solution:
         
         while s:
             cnt = 0
-            y,x = startPos[:]
+            y,x = startPos
             for c in s:
                 if c == "R":
                     x += 1
