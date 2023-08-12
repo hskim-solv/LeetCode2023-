@@ -1,3 +1,3 @@
 class Solution:
     def minOperations(self, n: int) -> int:
-        return sum( n//2 for n in range(1,n+1) )
+        return sum( i*2 for i in range(1,(n+1)//2) ) + (n//2 if not n % 2 else 0)
