@@ -12,7 +12,6 @@ class Solution:
         n = len(stack)
         mx = 0
         for l,r in zip(stack[:n//2],stack[n//2:][::-1]):
-            sm = l+r
-            if mx < sm:
-                mx = sm
+            if mx < l+r:
+                mx = l+r
         return mx
