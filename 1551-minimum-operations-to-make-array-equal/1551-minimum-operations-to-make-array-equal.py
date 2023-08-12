@@ -1,7 +1,8 @@
 class Solution:
     def __init__(self):
-        self.cache = {1:0,2:1}
+        self.cache = defaultdict(int)
+        self.cache[1] = 0
     def minOperations(self, n: int) -> int:
-        if n in self.cache:
-            return self.cache[n]
-        return n//2 + self.minOperations(n-1)
+        if n not in self.cache:
+            self.cache[n] = n//2 + self.minOperations(n-1)
+        return self.cache[n]
