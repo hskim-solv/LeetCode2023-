@@ -1,6 +1,6 @@
 class Solution:
     def __init__(self):
-        self.cache = {1:0}
+        self.cache = {1:0,2:1}
     def minOperations(self, n: int) -> int:
         if n in self.cache:
             return self.cache[n]
