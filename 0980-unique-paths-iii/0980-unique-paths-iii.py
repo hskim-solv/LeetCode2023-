@@ -18,7 +18,7 @@ class Solution:
                 return
             if grid[x][y] == 2:
                 if len(path)==cnt:
-                    res.append(path)
+                    res.append(1)
                 else:
                     return
             if x != 0:
@@ -37,4 +37,4 @@ class Solution:
         
         dfs([[x0,y0]])
 
-        return len(res)
+        return sum(res)
