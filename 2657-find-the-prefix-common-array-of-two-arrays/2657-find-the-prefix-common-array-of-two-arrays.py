@@ -6,9 +6,9 @@ class Solution:
             if A[i]==B[i]:
                 cnt += 1
             else:
-                if A[i] in B[:i+1]:
+                if A[i] in B[:i]:
                     cnt += 1
-                if B[i] in A[:i+1]:
+                if B[i] in A[:i]:
                     cnt += 1
             res.append(cnt)
         return res
