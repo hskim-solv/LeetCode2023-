@@ -6,8 +6,9 @@ class Solution:
             if A[i]==B[i]:
                 cnt += 1
             else:
-                for l1,l2 in [[A,B],[B,A]]:
-                    if l1[i] in l2[:i]:
+                for _ in range(2):
+                    if A[i] in B[:i]:
                         cnt += 1
+                    A, B = B, A
             res.append(cnt)
         return res
