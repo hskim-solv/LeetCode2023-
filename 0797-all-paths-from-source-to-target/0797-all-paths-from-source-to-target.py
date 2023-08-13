@@ -1,11 +1,12 @@
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         def dfs(graph, path):
+            node = path[-1]
 
-            if path[-1] == n:
+            if node == n:
                 res.append(path)
             else:
-                for sub in graph[path[-1]]:
+                for sub in graph[node]:
                     dfs(graph,path+[sub]) 
         n = len(graph)-1
         res = []
