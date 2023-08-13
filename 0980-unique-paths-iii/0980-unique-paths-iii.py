@@ -11,38 +11,27 @@ class Solution:
                     x0,y0 = i,j
         res = []
         def dfs(path):
-
             x, y = path[-1]
+            if grid[x][y] == -1:
+                return
             if grid[x][y] == 2:
                 if len(path)==cnt:
                     res.append(path)
                 else:
                     return
-            elif grid[x][y] == -1:
-                return
-            if [x-1,y] not in path:
-                if -1 == x-1:
-                    pass
-                else:
+            if x != 0:
+                if [x-1,y] not in path:
                     dfs(path + [ [x-1,y] ])
-                    
-            if [x,y-1] not in path:
-                if -1 == y-1:
-                    pass
-                else:
+            if y != 0:
+                if [x,y-1] not in path:
                     dfs(path + [ [x,y-1] ])
-
-            if [x+1,y] not in path:
-                if m == x+1:
-                    pass
-                else:
+            if m != x+1:
+                if [x+1,y] not in path:
                     dfs(path + [ [x+1,y] ])
-            if [x,y+1] not in path:
-                if n == y+1:
-                    pass
-                else:
+            if n != y+1:
+                if [x,y+1] not in path:
                     dfs(path + [ [x,y+1] ])
-            return       
+            
         
         dfs([[x0,y0]])
 
