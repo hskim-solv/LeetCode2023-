@@ -9,6 +9,8 @@ class Solution:
                     cnt -= 1
                 elif grid[i][j] == 1:
                     x0,y0 = i,j
+        m -= 1
+        n -= 1
         res = []
         def dfs(path):
             x, y = path[-1]
@@ -25,10 +27,10 @@ class Solution:
             if y != 0:
                 if [x,y-1] not in path:
                     dfs(path + [ [x,y-1] ])
-            if m != x+1:
+            if m != x:
                 if [x+1,y] not in path:
                     dfs(path + [ [x+1,y] ])
-            if n != y+1:
+            if n != y:
                 if [x,y+1] not in path:
                     dfs(path + [ [x,y+1] ])
             
