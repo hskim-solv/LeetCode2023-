@@ -19,18 +19,10 @@ class Solution:
                     res[0] += 1
                 else:
                     return
-            
-            if [x-1,y] not in path:
-                dfs(path + [ [x-1,y] ])
-            
-            if [x,y-1] not in path:
-                dfs(path + [ [x,y-1] ])
-            
-            if [x+1,y] not in path:
-                dfs(path + [ [x+1,y] ])
+            for xy in [[x-1,y],[x,y-1],[x+1,y],[x,y+1]]:
+                if xy not in path:
+                    dfs(path + [ xy ])
 
-            if [x,y+1] not in path:
-                dfs(path + [ [x,y+1] ])
             
         
         dfs([[x0,y0]])
