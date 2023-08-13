@@ -1,7 +1,9 @@
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         def dfs(graph, path):
-            for sub in graph[path[-1]]:
+            node = path[-1]
+
+            for sub in graph[node]:
                 if sub == n:
                     res.append(path+[sub])
                 else:
