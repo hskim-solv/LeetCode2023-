@@ -5,7 +5,7 @@ class Solution:
                 res.append(path)
             else:
                 for sub in graph[path[-1]]:
-                    dfs(path+[sub]) 
+                    dfs(path+[sub])
         n = len(graph)-1
         res = []
         dfs([0])
