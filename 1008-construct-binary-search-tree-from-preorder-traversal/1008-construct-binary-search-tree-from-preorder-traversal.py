@@ -8,8 +8,8 @@ class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
         root = TreeNode(val=preorder.pop(0))
         
-        for v in preorder:
-            self.bst(root,v)
+        for val in preorder:
+            self.bst(root,val)
         return root
     
     def bst(self, root, val):
