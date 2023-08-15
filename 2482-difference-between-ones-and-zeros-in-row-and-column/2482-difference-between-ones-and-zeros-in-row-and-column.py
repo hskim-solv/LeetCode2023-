@@ -9,11 +9,11 @@ class Solution:
             cz.append(col.count(0))
         res = []
         for i in range(m):
-            row = []
-            _rz = grid[i].count(0)
+            row = [n+m-2*grid[i].count(0)]*n
+
 
             for j in range(n):
-                row.append(n+m-2*(cz[j]+_rz) )
+                row[j]-=2*cz[j]
             res.append(row)
         return res
         
