@@ -11,11 +11,10 @@ class Solution:
         for i in range(m):
             row = []
             _rz = grid[i].count(0)
-            _ro = n-_rz
+
             for j in range(n):
-                _cz = cz[j]
-                _co = m-_cz
-                row.append(_ro+_co-_rz-_cz)
+
+                row.append(n+m-2*(cz[j]+_rz) )
             res.append(row)
         return res
         
