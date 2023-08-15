@@ -7,13 +7,14 @@
 class Solution:
     def balanceBST(self, root: TreeNode) -> TreeNode:
         v = []
+        @cache
         def dfs(node):
             if node:
                 dfs(node.left)
                 v.append(node.val)
                 dfs(node.right)
         dfs(root)
-
+        
         def bst(v):
             if not v:
                 return None
