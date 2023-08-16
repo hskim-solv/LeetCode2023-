@@ -2,7 +2,7 @@ class Solution:
     def equalFrequency(self, word: str) -> bool:
 	
         counter = Counter(word)
-        for c in word:
+        for c in set(word):
             counter[c] -= 1
             
             if counter[c] == 0:
