@@ -6,12 +6,12 @@ class Solution:
             f = e.pop()
             diff = f - e[-1]
             while e:
-                print(e,diff,'in')
+                #print(e,diff,'in')
                 if diff  != f-e[-1]:
                     res.append(False)
                     break
                 f = e.pop()
-            print(e,diff)
+            #print(e,diff)
             if not e:
                 res.append(True)
 
