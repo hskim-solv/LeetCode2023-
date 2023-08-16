@@ -7,7 +7,7 @@ class Solution:
                 res.append(True)
                 continue
             if len(e) != r[i]-l[i]+1:
-                print(e,nums[l[i]:r[i]+1],r[i]-l[i])
+                #print(e,nums[l[i]:r[i]+1],r[i]-l[i])
                 res.append(False)
                 continue
             mx, mn = max(e), min(e)
