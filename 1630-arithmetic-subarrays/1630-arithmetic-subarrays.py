@@ -2,16 +2,22 @@ class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
         res = []
         for i in range(len(l)):
-            e = sorted(nums[l[i]:r[i]+1])
-            f = e.pop()
-            diff = f - e[-1]
-            while e:
-                if diff  != f-e[-1]:
-                    res.append(False)
-                    break
-                f = e.pop()
-            if not e:
-                res.append(True)
+            e = nums[l[i]:r[i]+1]
+            mx,mn = max(e), min(e)
+            diff,mod = divmod(mx-mn,r[i]-l[i])
+            if mod:
+                res.append(False)
+                continue
+            tf = True
+            if diff:
+                for n in range(mn+diff,mx-diff+1,diff):
+
+                    #print(i,diff,n,e)
+                    if n not in e:
+                        tf = False
+                        break
+            
+            res.append(tf)
 
         return res
                     
