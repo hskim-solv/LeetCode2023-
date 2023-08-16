@@ -18,7 +18,7 @@ class Solution:
                 res.append(False)
                 continue
             while mn in e:
-                print(mn,e)
+                #print(mn,e)
                 e.remove(mn)
                 mn += diff
             
