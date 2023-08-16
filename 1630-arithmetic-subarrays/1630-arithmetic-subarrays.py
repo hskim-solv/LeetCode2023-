@@ -18,10 +18,10 @@ class Solution:
                 e.remove(mn)
                 mn += diff
             
-            if e:
-                res.append(False)
-            else:
+            if not e:
                 res.append(True)
+            else:
+                res.append(False)
 
         return res
                     
