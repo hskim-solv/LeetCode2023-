@@ -7,26 +7,21 @@ class Solution:
                 res.append(True)
                 continue
             if len(e) != r[i]-l[i]+1:
-                #print(e,nums[l[i]:r[i]+1],r[i]-l[i])
                 res.append(False)
                 continue
-            mx, mn = max(e), min(e)
-            #print(mx-mn,len(e))
-            diff, mod = divmod(mx-mn,r[i]-l[i])
+            mn = min(e)
+            diff, mod = divmod(max(e)-mn,r[i]-l[i])
             if mod:
-                #print('mod')
                 res.append(False)
                 continue
             while mn in e:
-                #print(mn,e)
                 e.remove(mn)
                 mn += diff
             
-
-            if not e:
-                res.append(True)
-            else:
+            if e:
                 res.append(False)
+            else:
+                res.append(True)
 
         return res
                     
