@@ -14,7 +14,7 @@ class Solution:
                 res[0].append(0)
                 res[1].append(0)
             else:
-                print(upper,lower)
+                #print(upper,lower)
 
                 if upper>0:
                     upper -= 1
