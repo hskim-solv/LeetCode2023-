@@ -9,5 +9,6 @@ class Solution:
                 else:
                     break
             if j < i:
+                print(1)
                 break
         return res
