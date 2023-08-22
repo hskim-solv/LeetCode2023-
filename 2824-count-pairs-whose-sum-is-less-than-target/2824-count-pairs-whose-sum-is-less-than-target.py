@@ -3,11 +3,8 @@ class Solution:
         nums.sort()
         res = 0
         for i in range(len(nums)-1):
-            
-            tn = target-nums[i]
-
             for j in range(i+1,len(nums)):
-                if nums[j] < tn:
+                if nums[j]+nums[i] < target:
                     res+=1
                 else:
                     break
