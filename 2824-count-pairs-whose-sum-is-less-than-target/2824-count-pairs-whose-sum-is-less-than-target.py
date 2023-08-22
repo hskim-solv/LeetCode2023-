@@ -8,4 +8,6 @@ class Solution:
                     res+=1
                 else:
                     break
+            if j < i:
+                break
         return res
