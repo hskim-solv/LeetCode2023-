@@ -5,12 +5,12 @@ class Solution:
         
         n = len(nums)
         for i in range(n):           
-            if type(nums[i]) != int: # visited element
+            if type(nums[i]) != int:
                 continue
-            if nums[i] % n == 0: # self-loop
+            if nums[i] % n == 0:
                 continue
             
-            direction = (nums[i] > 0) # loop direction, cannot be changed midway
+            direction = (nums[i] > 0)
             
             mark = str(i)
             while (type(nums[i]) == int) and (direction ^ (nums[i] < 0)) and (nums[i] % n != 0):
