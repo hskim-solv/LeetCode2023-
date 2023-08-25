@@ -10,5 +10,4 @@ class Solution:
                 q.append(nums[i])
             if i >= k and q and q[0] == nums[i - k]:
                 q.popleft()
-            #print(nums,q)
         return max(nums)
