@@ -4,9 +4,8 @@ class Solution:
         dp, idx = [1], [0] * size
         
         for _ in range(n-1):
-            m = inf
-            for j in range(size):
-                m = min(m,dp[idx[j]] * primes[j])
+
+            m = min(dp[idx[j]] * primes[j] for j in range(size))
             for j in range(size):
                 if m==dp[idx[j]] * primes[j]:
                     idx[j] += 1
