@@ -1,14 +1,22 @@
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         size = len(primes)
-        dp, idx, ugly_nums = [1], [0] * size, [1] * size
+        dp, idx = [1], [0] * size
+        
         for _ in range(n-1):
+            m = inf
             for j in range(size):
-                if ugly_nums[j]==dp[-1]:
-                    ugly_nums[j] = dp[idx[j]] * primes[j]
+                m = min(m,dp[idx[j]] * primes[j])
+            for j in range(size):
+                if m==dp[idx[j]] * primes[j]:
                     idx[j] += 1
-            dp.append(min(ugly_nums))
-
+            #print(dp,idx,m)
+            dp.append(m)
+            rest = min(idx)
+            if  rest > 0:
+                del dp[:rest]
+                for i in range(size):
+                    idx[i] -= rest
         return dp[-1]
         
             
