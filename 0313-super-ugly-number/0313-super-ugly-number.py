@@ -9,9 +9,8 @@ class Solution:
                 ugly_nums[j] = dp[idx[j]] * primes[j]
                 idx[j] += 1
             dp.append(min(ugly_nums))
-            #rest = min(idx)
+            rest = min(idx)
             if min(idx) > 0:
-                rest = min(idx)
                 del dp[:rest]
                 for i in range(size):
                     idx[i] -= rest
