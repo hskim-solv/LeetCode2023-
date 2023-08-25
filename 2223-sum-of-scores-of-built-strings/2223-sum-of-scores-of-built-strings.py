@@ -1,16 +1,16 @@
 class Solution:
     def sumScores(self, s: str) -> int:
-        score = 0
-        for k in range(1,len(s)):
-            if s[-k]!=s[0]:
-                continue
-            if s[-k:]==s[:k]:
-                score += k
-                continue
-            for i in range(k):
-
-                if s[-k+i] != s[i]:
-                    score += i
-                    break
-
-        return score+len(s)
+        def z_function(s):
+            n = len(s)
+            z = [0] * n
+            l, r = 0, 0
+            for i in range(1, n):
+                if i <= r:
+                    z[i] = min(r - i + 1, z[i - l])
+                while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+                    z[i] += 1
+                if i + z[i] - 1 > r:
+                    l, r = i, i + z[i] - 1
+            return z
+        
+        return sum(z_function(s)) + len(s)
