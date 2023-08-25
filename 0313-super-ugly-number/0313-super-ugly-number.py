@@ -1,7 +1,8 @@
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         size = len(primes)
-        dp, idx, ugly_nums = [1], [0] * size, [1] * size
+        dp, idx = [1], [0] * size
+        ugly_nums = dp*size
         for _ in range(n-1):
             while dp[-1] in ugly_nums:
                 j = ugly_nums.index(dp[-1])
