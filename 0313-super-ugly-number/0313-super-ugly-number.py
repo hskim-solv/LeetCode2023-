@@ -8,11 +8,7 @@ class Solution:
                     ugly_nums[j] = dp[idx[j]] * primes[j]
                     idx[j] += 1
             dp.append(min(ugly_nums))
-            rest = min(idx)
-            if  rest > 0:
-                del dp[:rest]
-                for i in range(size):
-                    idx[i] -= rest
+
         return dp[-1]
         
             
