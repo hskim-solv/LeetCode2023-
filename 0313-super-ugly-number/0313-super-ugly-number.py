@@ -5,12 +5,13 @@ class Solution:
         
         for _ in range(n-1):
 
-            m = min(dp[idx[j]] * primes[j] for j in range(size))
+            l = [dp[idx[j]] * primes[j] for j in range(size)]
+            m = min(l)
             for j in range(size):
-                if m==dp[idx[j]] * primes[j]:
+                if m==l[j]:
                     idx[j] += 1
             #print(dp,idx,m)
-            dp.append(m)
+            dp.append( m )
             rest = min(idx)
             if  rest > 0:
                 del dp[:rest]
