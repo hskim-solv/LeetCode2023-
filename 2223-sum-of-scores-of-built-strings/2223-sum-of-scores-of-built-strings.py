@@ -7,8 +7,10 @@ class Solution:
             if s[-k:]==s[:k]:
                 score += k
                 continue
-            for c1,c2 in zip(s[-k:],s[:k]):
-                if c1!=c2:
+            for i in range(k):
+
+                if s[-k+i] != s[i]:
+                    score += i
                     break
-                score += 1
+
         return score+len(s)
