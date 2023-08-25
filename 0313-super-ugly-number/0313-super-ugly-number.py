@@ -8,6 +8,11 @@ class Solution:
                 if ugly_nums[j] == ugly:
                     ugly_nums[j] = dp[index[j]] * primes[j]
                     index[j] += 1
+            if min(index) > 0:
+                rest = min(index)
+                del dp[:rest]
+                for i in range(size):
+                    index[i] -= rest 
             # get the minimum
             ugly = min(ugly_nums)
             dp.append(ugly)
