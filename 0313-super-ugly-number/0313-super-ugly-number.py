@@ -10,7 +10,7 @@ class Solution:
             dp.append(min(ugly_nums))
             rest = min(idx)
             if rest > 0:
-                dp = dp[rest:]
+                del dp[:rest]
                 for i in range(size):
                     idx[i] -= rest
         return dp[-1]
