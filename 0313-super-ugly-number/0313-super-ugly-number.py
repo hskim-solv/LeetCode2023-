@@ -5,11 +5,13 @@ class Solution:
         for i in range(1, n):
             while dp[-1] in ugly_nums:
                 j = ugly_nums.index(dp[-1])
+                #print(dp, idx, ugly_nums,idx[j])
                 ugly_nums[j] = dp[idx[j]] * primes[j]
                 idx[j] += 1
             dp.append(min(ugly_nums))
-            rest = min(idx)
-            if rest > 0:
+            #rest = min(idx)
+            if min(idx) > 0:
+                rest = min(idx)
                 del dp[:rest]
                 for i in range(size):
                     idx[i] -= rest
