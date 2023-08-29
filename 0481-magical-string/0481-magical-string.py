@@ -1,7 +1,7 @@
 class Solution:
     def magicalString(self, n: int) -> int:
         def gen():
-            for x in (1, 2, 2):
+            for x in 1, 2, 2:
                 yield x
             for i, x in enumerate(gen()):
                 if i > 1:
