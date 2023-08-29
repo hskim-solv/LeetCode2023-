@@ -6,13 +6,13 @@ class Solution:
         def dfs(i):
             if i == n: 
                 return True
-            jobsi = jobs[i]
+            
             for j in range(k):
-                if cap[j] >= jobsi:
-                    cap[j] -= jobsi
+                if cap[j] >= jobs[i]:
+                    cap[j] -= jobs[i]
                     if dfs(i + 1): 
                         return True
-                    cap[j] += jobsi
+                    cap[j] += jobs[i]
                 if cap[j] == x: 
                     break
             return False
