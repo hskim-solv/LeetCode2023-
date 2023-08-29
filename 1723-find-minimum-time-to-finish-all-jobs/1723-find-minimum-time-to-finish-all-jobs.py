@@ -1,19 +1,20 @@
 class Solution:
     def minimumTimeRequired(self, jobs: List[int], k: int) -> int:
         n = len(jobs)
-        jobs.sort(reverse=True) # opt 1
+        jobs.sort(reverse=True)
 
         def dfs(i):
             if i == n: 
-                return True # opt 3
+                return True
+            jobsi = jobs[i]
             for j in range(k):
-                if cap[j] >= jobs[i]:
-                    cap[j] -= jobs[i]
+                if cap[j] >= jobsi:
+                    cap[j] -= jobsi
                     if dfs(i + 1): 
                         return True
-                    cap[j] += jobs[i]
+                    cap[j] += jobsi
                 if cap[j] == x: 
-                    break # opt 2
+                    break
             return False
 
         # binary search
