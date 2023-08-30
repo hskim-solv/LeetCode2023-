@@ -5,7 +5,7 @@ class Solution:
         for n in nums[::-1]:
             if target-n < 0:
                 continue
-            if target-n==0:
+            if target-n == 0:
                 self.d[target] += 1
                 continue
             if target-n not in self.d:
