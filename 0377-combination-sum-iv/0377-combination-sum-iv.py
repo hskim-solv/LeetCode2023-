@@ -6,6 +6,7 @@ class Solution:
         if target in self.d:
             return self.d[target]
         if target < 0:
+            self.d[target] = 0
             return 0
         for n in nums[::-1]:
             
