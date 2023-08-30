@@ -1,17 +1,14 @@
 class Solution:
     def __init__(self):
         self.d = defaultdict(int)
+        self.d[0] = 1
     def combinationSum4(self, nums: List[int], target: int) -> int:
-        for n in nums:
-            #print(target,n)
-            if target-n > 0:
-                if target-n not in self.d:
-                    self.d[target] += self.combinationSum4(nums,target-n)
-                else:
-                    self.d[target] += self.d[target-n]
-            elif target-n == 0:
-                self.d[target] += 1
-
-        
+        if target < 0:
+            return 0
+        for n in nums[::-1]:
+            if target-n not in self.d:
+                self.d[target-n] = self.combinationSum4(nums,target-n)
+            self.d[target] += self.d[target-n]
+    
         return self.d[target]
             
