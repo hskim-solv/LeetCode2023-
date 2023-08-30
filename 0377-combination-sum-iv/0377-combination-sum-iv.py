@@ -11,7 +11,7 @@ class Solution:
                     self.d[target] += 1
                     continue
                 if target-n not in self.d:
-                    self.d[target-n] = self.combinationSum4(nums,target-n)
+                    self.d[target-n] = helper(nums,target-n)
                 self.d[target] += self.d[target-n]
     
             return self.d[target]
