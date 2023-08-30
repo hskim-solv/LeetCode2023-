@@ -5,7 +5,7 @@ class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
         if target < 0:
             return 0
-        for n in nums[::-1]:
+        for n in nums:
             if target-n not in self.d:
                 self.d[target-n] = self.combinationSum4(nums,target-n)
             self.d[target] += self.d[target-n]
