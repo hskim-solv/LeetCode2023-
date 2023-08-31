@@ -11,6 +11,7 @@ class Solution:
             root = stack.popleft()
             if not root.left and root.right:
                 return False
+            
             if root.left:
                 stack.append(root.left)
             if not root.right and stack and stack[0].left:
