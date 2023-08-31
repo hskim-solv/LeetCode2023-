@@ -8,9 +8,9 @@ class Solution:
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
         stack = deque([root])
         while stack:
+            root = stack.popleft()
             if not root.left and root.right:
                 return False
-            root = stack.popleft()
             if root.left:
                 stack.append(root.left)
             if not root.right and stack and stack[0].left:
