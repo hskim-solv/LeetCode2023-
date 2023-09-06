@@ -10,7 +10,7 @@ class Solution:
         
         left = 0
         down = 0
-        while left <= n or down <= m:
+        while True:
             #print(left, n ,down, m)
             for j in range(left,n):
                 #print('fr',res)
