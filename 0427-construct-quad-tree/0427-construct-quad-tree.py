@@ -19,14 +19,13 @@ class Solution:
         for row in grid:
             stack = list(set(stack+row))
             if len(stack) != 1:
-                n = len(grid)
-                half = n//2
+                half = len(grid)//2
                 return Node(val=1, 
                             isLeaf=0,
                            topLeft=self.construct([grid[i][:half] for i in range(half)]),
                            topRight=self.construct([grid[i][half:] for i in range(half)]),
-                           bottomLeft=self.construct([grid[i][:half] for i in range(half, n)]),
-                           bottomRight=self.construct([grid[i][half:] for i in range(half, n)]),
+                           bottomLeft=self.construct([grid[i][:half] for i in range(half, 2*half)]),
+                           bottomRight=self.construct([grid[i][half:] for i in range(half, 2*half)]),
                            )
         return Node(val=stack[0], isLeaf=1)
 
