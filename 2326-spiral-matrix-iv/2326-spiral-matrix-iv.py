@@ -14,10 +14,9 @@ class Solution:
         def rowcol(x, z, i, head):
             if x in (1, 3):
                 res[z][i] = head.val
-                return head.next
             else:
                 res[i][z] = head.val
-                return head.next
+            return head.next
         while head:
             for x, y, z in ((3, 1, 0),(0, 2, 1),(1, 3, 2),(2, 0, 3)):
                 for i in rnge(druf[x], druf[y]):
