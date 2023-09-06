@@ -13,9 +13,8 @@ class Solution:
         while True:
             #print(left, n ,down, m)
             for j in range(left,n):
-                #print('fr',res)
                 if head:
-                    res[down][j] = head.val
+                    res[down][j] += head.val
                     head = head.next
                 else:
                     res[down][j] -= 1
@@ -26,7 +25,7 @@ class Solution:
             for i in range(down, m):
                 #print('du',res)
                 if head:
-                    res[i][n-1] = head.val
+                    res[i][n-1] += head.val
                     head = head.next
                 else:
                     res[i][n-1] -= 1
@@ -39,7 +38,7 @@ class Solution:
             for j in range(n-1, left-1, -1):
                 #print('rf',res,n-1,left-1)
                 if head:
-                    res[m-1][j] = head.val
+                    res[m-1][j] += head.val
                     head = head.next
                 else:
                     res[m-1][j] -= 1
