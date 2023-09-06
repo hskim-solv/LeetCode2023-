@@ -13,6 +13,8 @@ class Node:
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
         # 그리드가 전부 같은 값인지 판별
+        if len(grid)==1:
+            return Node(val=grid[0][0], isLeaf=1)
         stack = []
         for row in grid:
             stack = list(set(stack+row))
