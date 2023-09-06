@@ -19,13 +19,14 @@ class Solution:
             else:
                 res[i][z] = head.val
                 return head.next
-        while True:
+        while head:
             for x, y in ((3, 1),(0, 2),(1, 3),(2, 0)):
                 for i in rnge(druf[x], druf[y]):
                     if head:
                         head = rowcol(x,druf[z],i,head)
                     else:
-                        break
+                        return res
+
                 if z in (0,3):
                     druf[z] += 1
                 else:
