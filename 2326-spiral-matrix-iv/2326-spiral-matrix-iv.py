@@ -33,6 +33,4 @@ class Solution:
                     druf[z] -= 1 
                 z += 1
                 z %= 4
-                if (druf[0] > druf[2]) or (druf[3] > druf[1]):
-                    return res
         return res
