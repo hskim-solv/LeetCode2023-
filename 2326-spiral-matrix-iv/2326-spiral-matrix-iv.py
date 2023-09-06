@@ -8,28 +8,24 @@ class Solution:
         res = [[-1 for _ in range(n)] for _ in range(m)]
         z=0
         druf = [0, n-1, m-1, 0]
+        def rnge(x,y):
+            if x > y:
+                return range(x, y-1, -1)
+            return range(x, y+1)
+        def rowcol(x,z,i,head):
+            if x in (1, 3):
+                res[z][i] = head.val
+                return head.next
+            else:
+                res[i][z] = head.val
+                return head.next
         while True:
             for x, y in ((3, 1),(0, 2),(1, 3),(2, 0)):
-                if druf[x] > druf[y]:
-                    rng = range(druf[x], druf[y]-1, -1)
-                else:
-                    rng = range(druf[x], druf[y]+1)
-                if x in (3, 1):
-                    for i in rng:
-                        if head:
-                            res[druf[z]][i] = head.val
-                            head = head.next
-                        else:
-                            break
-                else:
-                    
-                    for i in rng:
-                        if head:
-                            res[i][druf[z]] = head.val
-                            head = head.next
-                        else:
-                            break
-                
+                for i in rnge(druf[x], druf[y]):
+                    if head:
+                        head = rowcol(x,druf[z],i,head)
+                    else:
+                        break
                 if z in (0,3):
                     druf[z] += 1
                 else:
