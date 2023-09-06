@@ -8,56 +8,35 @@ class Solution:
         
         res = [[0 for _ in range(n)] for _ in range(m)]
         
-        left = 0
-        down = 0
+        lrdu = [0, n-1, 0, m-1]
         while True:
-            #print(left, n ,down, m)
-            for j in range(left,n):
-                if head:
-                    res[down][j] = head.val
-                    head = head.next
+            for x, y, z in ((0, 1, 2),(2, 3, 1),(1, 0, 3),(3, 2, 0)):
+                if x > y:
+                    rng = range(lrdu[x], lrdu[y]-1, -1)
                 else:
-                    res[down][j] = -1
-            down += 1
-            if down == m:
-                return res
+                    rng = range(lrdu[x], lrdu[y]+1)
+                if x in (0, 1):
+                    for i in rng:
+                        if head:
+                            res[lrdu[z]][i] = head.val
+                            head = head.next
+                        else:
+                            res[lrdu[z]][i] = -1
+                elif x in (2, 3):
+                    for i in rng:
+                        if head:
+                            res[i][lrdu[z]] = head.val
+                            head = head.next
+                        else:
+                            res[i][lrdu[z]] = -1
 
-            for i in range(down, m):
-                #print('du',res)
-                if head:
-                    res[i][n-1] = head.val
-                    head = head.next
+                if z in (0,2):
+                    lrdu[z] += 1
                 else:
-                    res[i][n-1] = -1
-                #print(res[i][-1-right])
-            
-            n -= 1
-            if left == n:
-                return res
-            
-            for j in range(n-1, left-1, -1):
-                #print('rf',res,n-1,left-1)
-                if head:
-                    res[m-1][j] = head.val
-                    head = head.next
-                else:
-                    res[m-1][j] = -1
-                    
-
-            m -= 1
-            if down == m:
-                return res
-            
-            for i in range(m-1,down-1,-1):
-                #print('ud',res,i,n)
-                if head:
-                    res[i][left] = head.val
-                    head = head.next
-                else:
-                    res[i][left] = -1
-                #print('ud',res,i,m)
-            left += 1
-            if left == n:
-                return res
+                    lrdu[z] -= 1 
+                #print(lrdu)
+                if (lrdu[2] > lrdu[3]) or (lrdu[0] > lrdu[1]):
+                    return res
+                
 
         return res
