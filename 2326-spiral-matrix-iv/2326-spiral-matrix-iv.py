@@ -14,10 +14,10 @@ class Solution:
             #print(left, n ,down, m)
             for j in range(left,n):
                 if head:
-                    res[down][j] += head.val
+                    res[down][j] = head.val
                     head = head.next
                 else:
-                    res[down][j] -= 1
+                    res[down][j] = -1
             down += 1
             if down == m:
                 return res
@@ -25,10 +25,10 @@ class Solution:
             for i in range(down, m):
                 #print('du',res)
                 if head:
-                    res[i][n-1] += head.val
+                    res[i][n-1] = head.val
                     head = head.next
                 else:
-                    res[i][n-1] -= 1
+                    res[i][n-1] = -1
                 #print(res[i][-1-right])
             
             n -= 1
@@ -38,10 +38,10 @@ class Solution:
             for j in range(n-1, left-1, -1):
                 #print('rf',res,n-1,left-1)
                 if head:
-                    res[m-1][j] += head.val
+                    res[m-1][j] = head.val
                     head = head.next
                 else:
-                    res[m-1][j] -= 1
+                    res[m-1][j] = -1
                     
 
             m -= 1
@@ -51,10 +51,10 @@ class Solution:
             for i in range(m-1,down-1,-1):
                 #print('ud',res,i,n)
                 if head:
-                    res[i][left] += head.val
+                    res[i][left] = head.val
                     head = head.next
                 else:
-                    res[i][left] -= 1
+                    res[i][left] = -1
                 #print('ud',res,i,m)
             left += 1
             if left == n:
