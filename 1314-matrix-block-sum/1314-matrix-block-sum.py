@@ -6,8 +6,6 @@ class Solution:
             for i in range(m):
                 row = []
                 for j in range(n):
-                    box = sum(sum(mat[r][max(0,j-k):min(n,j+k+1)]) for r in range(max(0,i-k),min(m,i+k+1)))
-
-                    row.append(box)
+                    row.append(sum(sum(mat[r][max(0,j-k):min(n,j+k+1)]) for r in range(max(0,i-k),min(m,i+k+1))))
                 answer.append(row)
             return answer
