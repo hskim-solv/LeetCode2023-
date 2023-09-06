@@ -6,7 +6,7 @@
 class Solution:
     def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
         
-        res = [[0 for _ in range(n)] for _ in range(m)]
+        res = [[-1 for _ in range(n)] for _ in range(m)]
         
         lrdu = [0, n-1, 0, m-1]
         while True:
@@ -21,14 +21,14 @@ class Solution:
                             res[lrdu[z]][i] = head.val
                             head = head.next
                         else:
-                            res[lrdu[z]][i] = -1
+                            break
                 elif x in (2, 3):
                     for i in rng:
                         if head:
                             res[i][lrdu[z]] = head.val
                             head = head.next
                         else:
-                            res[i][lrdu[z]] = -1
+                            break
 
                 if z in (0,2):
                     lrdu[z] += 1
