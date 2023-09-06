@@ -7,11 +7,11 @@ class Solution:
     def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
         res = [[-1 for _ in range(n)] for _ in range(m)]
         druf = [0, n-1, m-1, 0]
-        def rnge(x,y):
+        def rnge(x, y):
             if x > y:
                 return range(x, y-1, -1)
             return range(x, y+1)
-        def rowcol(x,z,i,head):
+        def rowcol(x, z, i, head):
             if x in (1, 3):
                 res[z][i] = head.val
                 return head.next
