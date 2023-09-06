@@ -4,19 +4,21 @@ class Solution:
         h, w = len(mat), len(mat[0])
         integral_image = [ [ 0 for _ in range(w) ] for _ in range(h) ]
         # building integral image to speed up block sum computation
-        integral_image[0] = list(accumulate(mat[0]))
-        for i in range(1,h):
+        
+        for i in range(h):
             summation = 0
             for j in range(w):
                 summation += mat[i][j]
                 integral_image[i][j] = summation
-                integral_image[i][j] += integral_image[i-1][j]
+                
+                if i != 0:
+                    integral_image[i][j] += integral_image[i-1][j]
         
         # compute block sum by looking-up integral image
         output_image = [ [ 0 for _ in range(w) ] for _ in range(h) ]
         for i in range(h):
+            min_row, max_row = max(0, i-k), min(h-1, i+k)
             for j in range(w):
-                min_row, max_row = max(0, i-k), min(h-1, i+k)
                 min_col, max_col = max(0, j-k), min(w-1, j+k)
                
                 output_image[i][j] = integral_image[max_row][max_col]
