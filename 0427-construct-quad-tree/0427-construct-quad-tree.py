@@ -12,8 +12,6 @@ class Node:
 
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
-
-            
         if len(set(chain.from_iterable(grid))) > 1:
             half = len(grid)//2
             colgrid = list(zip(*grid))
