@@ -6,5 +6,6 @@ class Solution:
                 continue
             s = str(i)
             m = len(s)//2
-            res += int(sum( map(int, s[:m]) ) == sum( map(int, s[m:]) ))
+            if sum( map(int, s[:m]) ) == sum( map(int, s[m:]) ):
+                res += 1
         return res
