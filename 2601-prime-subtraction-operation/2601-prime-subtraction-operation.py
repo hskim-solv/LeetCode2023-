@@ -15,5 +15,4 @@ class Solution:
                         break
                 if nums[i-1] <= nums[i]:
                     return False
-        print(nums)
         return True
