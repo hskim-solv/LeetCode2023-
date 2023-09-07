@@ -15,7 +15,7 @@ class Solution:
         stack = set()
         for row in grid:
             stack.update(row)
-            if len(stack) != 1:
+            if len(stack) > 1:
                 half = len(grid)//2
                 l = [grid[i][:half] for i in range(half*2)]
                 r = [grid[i][half:] for i in range(half*2)]
