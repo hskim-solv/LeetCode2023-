@@ -12,12 +12,9 @@ class Node:
 
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
-        # 그리드가 전부 같은 값인지 판별
-        if len(grid) == 1:
-            return Node(val=grid[0][0], isLeaf=1)
-        stack = []
+        stack = set()
         for row in grid:
-            stack = list(set(stack+row))
+            stack.update(row)
             if len(stack) != 1:
                 half = len(grid)//2
                 return Node(val=1, 
@@ -27,7 +24,7 @@ class Solution:
                            bottomLeft=self.construct([grid[i][:half] for i in range(half, 2*half)]),
                            bottomRight=self.construct([grid[i][half:] for i in range(half, 2*half)]),
                            )
-        return Node(val=stack[0], isLeaf=1)
+        return Node(val=grid[0][0], isLeaf=1)
 
         
         
