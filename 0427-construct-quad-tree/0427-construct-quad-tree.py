@@ -13,18 +13,13 @@ class Node:
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
         stack = set()
-        l, r = [], []
-        n = len(grid)
-        half = n//2
-        for i in range(n):
+        for i in range(len(grid)):
             stack.update(grid[i])
-            l.append(grid[i][:half])
-            r.append(grid[i][half:])
             if len(stack) > 1:
-
-                for i in range(len(l), n):
-                    l.append(grid[i][:half])
-                    r.append(grid[i][half:])
+                half = len(grid)//2
+                colgrid=list(zip(*grid))
+                l = list(zip(*colgrid[:half]))
+                r = list(zip(*colgrid[half:]))
 
                 return Node(val=1, 
                             isLeaf=0,
