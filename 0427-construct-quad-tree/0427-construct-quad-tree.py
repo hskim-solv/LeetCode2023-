@@ -16,7 +16,7 @@ class Solution:
             
         if len(set(chain.from_iterable(grid))) > 1:
             half = len(grid)//2
-            colgrid=list(zip(*grid))
+            colgrid = list(zip(*grid))
             l = list(zip(*colgrid[:half]))
             r = list(zip(*colgrid[half:]))
 
