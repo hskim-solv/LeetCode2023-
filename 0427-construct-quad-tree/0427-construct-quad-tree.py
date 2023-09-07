@@ -20,19 +20,19 @@ class Solution:
             stack.update(grid[i])
             l.append(grid[i][:half])
             r.append(grid[i][half:])
-        if len(stack) > 1:
+            if len(stack) > 1:
 
-            for i in range(len(l), n):
-                l.append(grid[i][:half])
-                r.append(grid[i][half:])
+                for i in range(len(l), n):
+                    l.append(grid[i][:half])
+                    r.append(grid[i][half:])
 
-            return Node(val=1, 
-                        isLeaf=0,
-                       topLeft=self.construct(l[:half]),
-                       topRight=self.construct(r[:half]),
-                       bottomLeft=self.construct(l[half:]),
-                       bottomRight=self.construct(r[half:]),
-                       )
+                return Node(val=1, 
+                            isLeaf=0,
+                           topLeft=self.construct(l[:half]),
+                           topRight=self.construct(r[:half]),
+                           bottomLeft=self.construct(l[half:]),
+                           bottomRight=self.construct(r[half:]),
+                           )
         return Node(val=grid[0][0], isLeaf=1)
 
         
