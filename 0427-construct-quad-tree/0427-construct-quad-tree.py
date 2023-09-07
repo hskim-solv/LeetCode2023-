@@ -17,8 +17,10 @@ class Solution:
             stack.update(row)
             if len(stack) > 1:
                 half = len(grid)//2
-                l = [grid[i][:half] for i in range(half*2)]
-                r = [grid[i][half:] for i in range(half*2)]
+                l, r = [], []
+                for i in range(half*2):
+                    l.append(grid[i][:half])
+                    r.append(grid[i][half:])
                 return Node(val=1, 
                             isLeaf=0,
                            topLeft=self.construct(l[:half]),
