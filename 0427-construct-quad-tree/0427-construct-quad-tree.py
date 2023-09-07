@@ -17,12 +17,14 @@ class Solution:
             stack.update(row)
             if len(stack) != 1:
                 half = len(grid)//2
+                l = [grid[i][:half] for i in range(half*2)]
+                r = [grid[i][half:] for i in range(half*2)]
                 return Node(val=1, 
                             isLeaf=0,
-                           topLeft=self.construct([grid[i][:half] for i in range(half)]),
-                           topRight=self.construct([grid[i][half:] for i in range(half)]),
-                           bottomLeft=self.construct([grid[i][:half] for i in range(half, 2*half)]),
-                           bottomRight=self.construct([grid[i][half:] for i in range(half, 2*half)]),
+                           topLeft=self.construct(l[:half]),
+                           topRight=self.construct(r[:half]),
+                           bottomLeft=self.construct(l[half:]),
+                           bottomRight=self.construct(r[half:]),
                            )
         return Node(val=grid[0][0], isLeaf=1)
 
