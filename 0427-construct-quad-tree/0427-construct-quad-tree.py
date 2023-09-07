@@ -13,26 +13,22 @@ class Node:
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
         stack = set()
-        l, r = [], []
-        n = len(grid)
-        half = n//2
-        for i in range(n):
+        for i in range(len(grid)):
             stack.update(grid[i])
-            l.append(grid[i][:half])
-            r.append(grid[i][half:])
-            if len(stack) > 1:
-                
-                for i in range(len(l), n):
-                    l.append(grid[i][:half])
-                    r.append(grid[i][half:])
-                    
-                return Node(val=1, 
-                            isLeaf=0,
-                           topLeft=self.construct(l[:half]),
-                           topRight=self.construct(r[:half]),
-                           bottomLeft=self.construct(l[half:]),
-                           bottomRight=self.construct(r[half:]),
-                           )
+
+        if len(stack) > 1:
+            half = len(grid)//2
+            l, r = [], []
+            for i in range(half*2):
+                l.append(grid[i][:half])
+                r.append(grid[i][half:])
+            return Node(val=1, 
+                        isLeaf=0,
+                       topLeft=self.construct(l[:half]),
+                       topRight=self.construct(r[:half]),
+                       bottomLeft=self.construct(l[half:]),
+                       bottomRight=self.construct(r[half:]),
+                       )
         return Node(val=grid[0][0], isLeaf=1)
 
         
