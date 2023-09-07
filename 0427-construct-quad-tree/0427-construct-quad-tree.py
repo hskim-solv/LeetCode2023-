@@ -12,10 +12,9 @@ class Node:
 
 class Solution:
     def construct(self, grid: List[List[int]]) -> 'Node':
-        stack = set()
-        for i in range(len(grid)):
-            stack.update(grid[i])
-        if len(stack) > 1:
+
+            
+        if len(set(chain.from_iterable(grid))) > 1:
             half = len(grid)//2
             colgrid=list(zip(*grid))
             l = list(zip(*colgrid[:half]))
