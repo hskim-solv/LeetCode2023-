@@ -1,7 +1,6 @@
 class Solution:
     def primeSubOperation(self, nums: List[int]) -> bool:
         nums = nums[::-1]
-        m = nums[0]
         def is_prime(n):
             if n < 2:
                 return False
