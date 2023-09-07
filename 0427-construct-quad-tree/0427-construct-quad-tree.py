@@ -22,7 +22,7 @@ class Solution:
             r.append(grid[i][half:])
             if len(stack) > 1:
                 
-                for i in range(len(l),half*2):
+                for i in range(len(l), n):
                     l.append(grid[i][:half])
                     r.append(grid[i][half:])
                     
