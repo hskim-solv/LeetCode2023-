@@ -15,19 +15,19 @@ class Solution:
         stack = set()
         for i in range(len(grid)):
             stack.update(grid[i])
-            if len(stack) > 1:
-                half = len(grid)//2
-                colgrid=list(zip(*grid))
-                l = list(zip(*colgrid[:half]))
-                r = list(zip(*colgrid[half:]))
+        if len(stack) > 1:
+            half = len(grid)//2
+            colgrid=list(zip(*grid))
+            l = list(zip(*colgrid[:half]))
+            r = list(zip(*colgrid[half:]))
 
-                return Node(val=1, 
-                            isLeaf=0,
-                           topLeft=self.construct(l[:half]),
-                           topRight=self.construct(r[:half]),
-                           bottomLeft=self.construct(l[half:]),
-                           bottomRight=self.construct(r[half:]),
-                           )
+            return Node(val=1, 
+                        isLeaf=0,
+                       topLeft=self.construct(l[:half]),
+                       topRight=self.construct(r[:half]),
+                       bottomLeft=self.construct(l[half:]),
+                       bottomRight=self.construct(r[half:]),
+                       )
         return Node(val=grid[0][0], isLeaf=1)
 
         
