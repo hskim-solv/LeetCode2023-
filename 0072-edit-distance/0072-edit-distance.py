@@ -3,7 +3,7 @@ class Solution:
         self.cache = defaultdict(int)
     def minDistance(self, word1: str, word2: str) -> int:
         #print(self.cache,word1,word2)
-        if not word1 and not word2:
+        if not word1 + word2:
             return 0
         if not word1:
             return len(word2)
