@@ -8,6 +8,9 @@ class Solution:
             while word1 and word2 and word1[-1] == word2[-1]:
                 word1 = word1[:-1]
                 word2 = word2[:-1]
+            while word1 and word2 and word1[0] == word2[0]:
+                word1 = word1[1:]
+                word2 = word2[1:]
             return self.minDistance(word1, word2)
         if (word1, word2) not in self.cache:
             self.cache[(word1, word2)] = min(
