@@ -4,7 +4,7 @@ class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         if not word1: return len(word2)
         if not word2: return len(word1)
-        if word1[-1] == word2[-1]:
+        if word1[-1] == word2[-1] or word1[0] == word2[0]:
             while word1 and word2 and word1[-1] == word2[-1]:
                 word1 = word1[:-1]
                 word2 = word2[:-1]
