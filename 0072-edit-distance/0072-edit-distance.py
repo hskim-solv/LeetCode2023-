@@ -20,6 +20,6 @@ class Solution:
                             min(min(self.minDistance(word1[:-1], word2[:-1])+1,
                             self.minDistance(word1, word2[:-1])+1),
                             self.minDistance(word1[:-1], word2)+1),
-                            self.minDistance(word1[1:], word2)+1,
+                            self.minDistance(word1, word2[1:])+1,
                         )
         return self.cache[(word1,word2)]
