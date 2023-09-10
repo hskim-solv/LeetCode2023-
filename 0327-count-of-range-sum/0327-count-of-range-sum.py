@@ -1,8 +1,6 @@
 class Solution:
     def countRangeSum(self, nums, lower, upper):
-        first = [0]
-        for num in nums:
-            first.append(first[-1] + num)
+        first = [0]+list(accumulate(nums))
         def sort(lo, hi):
             mid = (lo + hi) // 2
             if mid == lo:
