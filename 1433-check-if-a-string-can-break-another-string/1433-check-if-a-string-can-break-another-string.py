@@ -7,5 +7,4 @@ class Solution:
             res.add(ord(x) > ord(y))
             if len(res) == 2:
                 return False
-                
         return True
