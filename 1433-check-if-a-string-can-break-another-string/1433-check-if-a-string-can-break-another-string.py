@@ -4,7 +4,7 @@ class Solution:
         for x, y in zip(sorted(s1), sorted(s2)):
             if ord(x) == ord(y):
                 continue
-            res.add(ord(x) >= ord(y))
+            res.add(ord(x) > ord(y))
             if len(res) == 2:
                 return False
                 
