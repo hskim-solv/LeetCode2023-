@@ -7,8 +7,9 @@ class Solution:
         diff = m-n
         m += diff
         while arr and m in arr:
+            arr.remove(m)
             m += diff
-            arr.remove(m-diff)
+            
         return not bool(arr)
         
             
