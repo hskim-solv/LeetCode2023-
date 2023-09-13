@@ -12,4 +12,4 @@ class Solution:
                 if res[j][c] == n*2:
                     res[j][c] = res[i][1-c]+1
                     bfs.append([j, 1-c])
-        return [x if x < n*2 else -1 for x in map(min, res)]
+        return list(x if x < n*2 else -1 for x in map(min, res))
