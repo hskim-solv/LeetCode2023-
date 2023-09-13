@@ -10,7 +10,7 @@ class Solution:
         arr.sort(reverse=True)
 
         
-        for i in range(len(arr)):
+        for i in range(len(arr)-1):
             if arr[i][0] ** 2 <= result: 
                 break
             for j in range(i+1, len(arr)-i//2):
