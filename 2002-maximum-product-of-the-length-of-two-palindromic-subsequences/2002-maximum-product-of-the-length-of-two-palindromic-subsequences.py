@@ -22,7 +22,9 @@ class Solution:
             for j in range(i+1, len(arr)):
                 len2, mask2 = arr[j]
                 # disjoint
-                if mask1 & mask2 == 0 and len1 * len2 > result:
+                if mask1 & mask2:
+                    continue
+                if len1 * len2 > result:
                     result = len1 * len2
                     break
         
