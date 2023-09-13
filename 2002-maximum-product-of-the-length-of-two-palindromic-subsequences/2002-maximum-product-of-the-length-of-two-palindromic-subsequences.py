@@ -5,9 +5,11 @@ class Solution:
         result = 1
         for mask in range(1, 1<<n):
             subseq = [s[i] for i in range(n) if mask & (1<<i)]
+            if len(arr) > 1 and arr[-2][0] > len(subseq):
+                continue
             if subseq == subseq[::-1]:
-                arr.append([len(subseq), mask])
-        arr.sort(reverse=True)
+                arr.append((len(subseq), mask))
+                arr.sort(reverse=True)
         
         for i in range(len(arr)):
             if arr[i][0] ** 2 <= result: 
