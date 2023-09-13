@@ -6,8 +6,7 @@ class Solution:
         for mask in range(1, 1<<n):
             subseq = [s[i] for i in range(n) if mask & (1<<i)]
             if subseq == subseq[::-1]:
-                arr.append((len(subseq), mask))
-        #print(arr)
+                arr.append([len(subseq), mask])
         arr.sort(reverse=True)
         
         for i in range(len(arr)):
