@@ -18,7 +18,7 @@ class Solution:
                 break
             mask1 = arr[i][1]
             for j in range(i+1, len(arr)):
-                len2, mask2 = arr[j]
+                #len2, mask2 = arr[j]
                 # disjoint
                 if mask1 & arr[j][1]:
                     continue
