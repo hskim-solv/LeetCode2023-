@@ -5,9 +5,8 @@ class Solution:
         
         for mask in range(1, 1<<n):
             subseq = ''
-            for i in range(n):
-                # convert the bitmask to the actual subsequence
-                if mask & (1 << i) > 0:
+            for i in range(n):         
+                if mask & (1 << i):
                     subseq += s[i]
             if subseq == subseq[::-1]:
                 arr.append((len(subseq), mask))
