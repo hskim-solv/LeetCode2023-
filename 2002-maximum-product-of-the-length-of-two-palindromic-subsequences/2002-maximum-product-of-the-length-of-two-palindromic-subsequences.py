@@ -5,14 +5,14 @@ class Solution:
         arr = deque(sorted([mask for mask in range(1, 1<<len(s)) if is_pal([s[i] for i in range(len(s)) if mask & (1<<i)])], key=lambda x: bin(x).count('1'), reverse=True))
 
 
-        result = 1
+        s = 1
         while arr:
             p = arr.popleft()
-            if bin(p).count('1') ** 2 <= result: 
-                return result
+            if bin(p).count('1') ** 2 <= s: 
+                return s
             for n in arr:
                 if not p & n:
-                    if bin(p).count('1') * bin(n).count('1') > result:
-                        result = bin(p).count('1') * bin(n).count('1')
+                    if bin(p).count('1') * bin(n).count('1') > s:
+                        s = bin(p).count('1') * bin(n).count('1')
                         break
-        return result
+        return s
