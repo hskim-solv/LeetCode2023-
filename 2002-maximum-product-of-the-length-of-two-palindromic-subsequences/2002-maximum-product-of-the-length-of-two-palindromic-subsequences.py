@@ -10,9 +10,9 @@ class Solution:
             p = arr.popleft()
             if bin(p).count('1') ** 2 <= result: 
                 break
-            for j in range(len(arr)):
-                if not p & arr[j]:
-                    if bin(p).count('1') * bin(arr[j]).count('1') > result:
-                        result = bin(p).count('1') * bin(arr[j]).count('1')
+            for n in arr:
+                if not p & n:
+                    if bin(p).count('1') * bin(n).count('1') > result:
+                        result = bin(p).count('1') * bin(n).count('1')
                         break
         return result
