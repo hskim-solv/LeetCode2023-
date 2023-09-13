@@ -6,7 +6,7 @@ class Solution:
 
 
         result = 1
-        while True:
+        while arr:
             p = arr.popleft()
             if bin(p).count('1') ** 2 <= result: 
                 return result
