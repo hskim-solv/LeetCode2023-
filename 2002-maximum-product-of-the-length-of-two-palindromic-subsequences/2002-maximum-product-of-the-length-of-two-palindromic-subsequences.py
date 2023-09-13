@@ -12,8 +12,8 @@ class Solution:
             if bp1 ** 2 <= s: 
                 return s
             for n in arr:
-                if not p & n:
-                    if bp1 * bin(n).count('1') > s:
+                if bp1 * bin(n).count('1') > s:
+                    if not p & n:
                         s = bp1 * bin(n).count('1')
                         break
         return s
