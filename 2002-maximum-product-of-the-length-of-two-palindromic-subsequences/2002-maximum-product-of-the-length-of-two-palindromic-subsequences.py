@@ -13,7 +13,7 @@ class Solution:
         for i in range(len(arr)):
             if arr[i][0] ** 2 <= result: 
                 break
-            for j in range(i+1, len(arr)):
+            for j in range(i+1, len(arr)-i//2):
                 if arr[i][1] & arr[j][1]:
                     continue
                 if arr[i][0] * arr[j][0] > result:
