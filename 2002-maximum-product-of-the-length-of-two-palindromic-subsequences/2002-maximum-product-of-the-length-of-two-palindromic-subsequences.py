@@ -6,7 +6,7 @@ class Solution:
 
 
         result = 1
-        for i in range(len(arr)-1):
+        for i in range(len(arr)//2):
             if bin(arr[i]).count('1') ** 2 <= result: 
                 break
             for j in range(i+1, len(arr)):
