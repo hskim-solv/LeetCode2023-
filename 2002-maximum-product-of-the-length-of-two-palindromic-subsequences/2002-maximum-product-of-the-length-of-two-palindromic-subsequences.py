@@ -1,10 +1,9 @@
 class Solution:
     def maxProduct(self, s: str) -> int:
-        arr = []
-        for mask in range(1, 1<<len(s)):
-            subseq = [s[i] for i in range(len(s)) if mask & (1<<i)]
-            if subseq == subseq[::-1]:
-                arr.append((len(subseq), mask))
+        def is_pal(l):
+            return l == l[::-1]
+        arr = [(bin(mask).count('1'), mask) for mask in range(1, 1<<len(s)) if is_pal([s[i] for i in range(len(s)) if mask & (1<<i)])]
+
         arr.sort(reverse=True)
 
         result = 1
