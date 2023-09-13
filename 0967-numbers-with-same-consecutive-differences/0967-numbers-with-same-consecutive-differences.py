@@ -9,9 +9,10 @@ class Solution:
             return res
         res = set()
         for num in self.numsSameConsecDiff(n-1, k):
-            c = int(str(num)[-1])
+            num = str(num)
+            c = int(num[-1])
             if c+k < 10:
-                res.add(int(str(num)+str(c+k)))
+                res.add(int(num+str(c+k)))
             if c-k >= 0:
-                res.add(int(str(num)+str(c-k)))
+                res.add(int(num+str(c-k)))
         return res
