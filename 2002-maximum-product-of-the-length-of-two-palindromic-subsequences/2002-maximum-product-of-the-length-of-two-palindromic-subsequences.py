@@ -9,7 +9,8 @@ class Solution:
         while arr:
             p = arr.popleft()
             bp1 = bin(p).count('1')
-
+            if bp1 ** 2 <= s: 
+                return s
             for n in arr:
                 if not p & n:
                     s = max(s, bp1 * bin(n).count('1'))
