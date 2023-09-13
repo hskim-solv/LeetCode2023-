@@ -17,7 +17,8 @@ class Solution:
         for i in range(len(arr)):
             len1, mask1 = arr[i]
             # break early
-            if len1 ** 2 < result: break
+            if len1 ** 2 <= result: 
+                break
             for j in range(i+1, len(arr)):
                 len2, mask2 = arr[j]
                 # disjoint
