@@ -8,11 +8,12 @@ class Solution:
         s = 1
         while arr:
             p = arr.popleft()
-            if bin(p).count('1') ** 2 <= s: 
+            bp1 = bin(p).count('1')
+            if bp1 ** 2 <= s: 
                 return s
             for n in arr:
                 if not p & n:
-                    if bin(p).count('1') * bin(n).count('1') > s:
-                        s = bin(p).count('1') * bin(n).count('1')
+                    if bp1 * bin(n).count('1') > s:
+                        s = bp1 * bin(n).count('1')
                         break
         return s
