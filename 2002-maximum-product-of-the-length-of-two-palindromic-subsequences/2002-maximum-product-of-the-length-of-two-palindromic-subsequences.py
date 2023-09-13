@@ -6,12 +6,13 @@ class Solution:
 
 
         result = 1
-        for i in range(len(arr)//2):
-            if bin(arr[i]).count('1') ** 2 <= result: 
+        while True:
+            p = arr.pop(0)
+            if bin(p).count('1') ** 2 <= result: 
                 break
-            for j in range(i+1, len(arr)):
-                if not arr[i] & arr[j]:
-                    if bin(arr[i]).count('1') * bin(arr[j]).count('1') > result:
-                        result = bin(arr[i]).count('1') * bin(arr[j]).count('1')
+            for j in range(len(arr)):
+                if not p & arr[j]:
+                    if bin(p).count('1') * bin(arr[j]).count('1') > result:
+                        result = bin(p).count('1') * bin(arr[j]).count('1')
                         break
         return result
