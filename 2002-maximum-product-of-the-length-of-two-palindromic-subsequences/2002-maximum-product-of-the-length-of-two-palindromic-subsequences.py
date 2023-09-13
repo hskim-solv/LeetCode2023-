@@ -14,17 +14,16 @@ class Solution:
         arr.sort(reverse=True)
         result = 1
         for i in range(len(arr)):
-            len1, mask1 = arr[i]
-            # break early
-            if len1 ** 2 <= result: 
+            if arr[i][0] ** 2 <= result: 
                 break
+            mask1 = arr[i][1]
             for j in range(i+1, len(arr)):
                 len2, mask2 = arr[j]
                 # disjoint
-                if mask1 & mask2:
+                if mask1 & arr[j][1]:
                     continue
-                if len1 * len2 > result:
-                    result = len1 * len2
+                if arr[i][0] * arr[j][0] > result:
+                    result = arr[i][0] * arr[j][0]
                     break
         
         return result
