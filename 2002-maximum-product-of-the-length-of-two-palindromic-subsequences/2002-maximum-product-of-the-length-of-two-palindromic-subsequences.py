@@ -3,14 +3,11 @@ class Solution:
         n = len(s)
         arr = []
         result = 1
-        for mask in range(1<<n, 0, -1):
-        #for mask in range(1, 1<<n):
-            subseq = ''
-            for i in range(n):         
-                if mask & (1 << i):
-                    subseq += s[i]
+        for mask in range(1, 1<<n):
+            subseq = [s[i] for i in range(n) if mask & (1<<i)]
             if subseq == subseq[::-1]:
                 arr.append((len(subseq), mask))
+        #print(arr)
         arr.sort(reverse=True)
         
         for i in range(len(arr)):
