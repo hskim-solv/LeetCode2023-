@@ -16,11 +16,8 @@ class Solution:
         for i in range(len(arr)):
             if arr[i][0] ** 2 <= result: 
                 break
-            mask1 = arr[i][1]
             for j in range(i+1, len(arr)):
-                #len2, mask2 = arr[j]
-                # disjoint
-                if mask1 & arr[j][1]:
+                if arr[i][1] & arr[j][1]:
                     continue
                 if arr[i][0] * arr[j][0] > result:
                     result = arr[i][0] * arr[j][0]
