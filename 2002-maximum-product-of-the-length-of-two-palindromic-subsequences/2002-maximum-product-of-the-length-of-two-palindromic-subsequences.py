@@ -3,7 +3,7 @@ class Solution:
         n = len(s)
         arr = []
         result = 1
-        for mask in range(1, 1<<n):
+        for mask in range(1, (1<<n)-1):
             subseq = [s[i] for i in range(n) if mask & (1<<i)]
             if subseq == subseq[::-1]:
                 arr.append((len(subseq), mask))
