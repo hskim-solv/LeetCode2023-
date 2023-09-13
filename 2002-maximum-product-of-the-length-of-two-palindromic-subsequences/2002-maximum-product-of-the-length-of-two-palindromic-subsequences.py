@@ -9,7 +9,7 @@ class Solution:
         while True:
             p = arr.popleft()
             if bin(p).count('1') ** 2 <= result: 
-                break
+                return result
             for n in arr:
                 if not p & n:
                     if bin(p).count('1') * bin(n).count('1') > result:
