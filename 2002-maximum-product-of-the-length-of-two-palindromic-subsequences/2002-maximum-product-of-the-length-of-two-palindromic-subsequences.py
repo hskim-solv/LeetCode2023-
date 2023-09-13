@@ -14,7 +14,7 @@ class Solution:
             if arr[i][0] ** 2 <= result: 
                 break
             for j in range(i+1, len(arr)):
-                if not (arr[i][1] & arr[j][1]):
+                if not arr[i][1] & arr[j][1]:
                     if arr[i][0] * arr[j][0] > result:
                         result = arr[i][0] * arr[j][0]
                         break
