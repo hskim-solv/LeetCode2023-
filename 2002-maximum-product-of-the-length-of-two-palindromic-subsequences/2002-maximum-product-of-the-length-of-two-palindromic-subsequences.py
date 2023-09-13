@@ -11,4 +11,3 @@ class Solution:
             for n in arr:
                 if not p & n:
                     res = max(res, bin(p).count('1') * bin(n).count('1'))
-        #return res
