@@ -7,6 +7,6 @@ class Solution:
                 if maxSum >= i:
                     maxSum -= i
                     cnt += 1
-                if 0 >= maxSum:
-                    break
+                    if 0 >= maxSum:
+                        break
         return cnt
