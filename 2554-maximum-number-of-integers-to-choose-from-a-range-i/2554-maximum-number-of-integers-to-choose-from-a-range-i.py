@@ -13,10 +13,11 @@ class Solution:
                 if maxSum-total >= i:
                     total += i
                     cnt += 1
+                if total >= maxSum:
+                    break
             if banned and banned[0] < i:
                 banned.pop(0)
             
-            if total >= maxSum:
-                break
+
         
         return cnt
