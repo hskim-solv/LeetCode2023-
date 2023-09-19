@@ -10,5 +10,7 @@ class Solution:
                     cnt += 1
                 if total >= maxSum:
                     break
+            else:
+                banned.remove(i)
     
         return cnt
