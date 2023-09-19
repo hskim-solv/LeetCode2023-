@@ -1,14 +1,13 @@
 class Solution:
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
         banned = set(banned)
-        total = 0
         cnt = 0
         top = min(n,maxSum)+1
-        for i in range(1, top-total):
+        for i in range(1, top):
             if i not in banned:
-                if maxSum-total >= i:
-                    total += i
+                if maxSum >= i:
+                    maxSum -= i
                     cnt += 1
-                if total >= maxSum:
+                if 0 >= maxSum:
                     break
         return cnt
