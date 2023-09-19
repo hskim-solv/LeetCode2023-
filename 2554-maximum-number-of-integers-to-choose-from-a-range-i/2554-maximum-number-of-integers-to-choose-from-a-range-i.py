@@ -3,7 +3,8 @@ class Solution:
         banned = set(banned)
         total = 0
         cnt = 0
-        for i in range(1, min(n,maxSum)+1):
+        top = min(n,maxSum)+1
+        for i in range(1, top-total):
             if i not in banned:
                 if maxSum-total >= i:
                     total += i
