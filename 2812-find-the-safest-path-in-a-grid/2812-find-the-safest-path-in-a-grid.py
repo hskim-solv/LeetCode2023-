@@ -14,7 +14,7 @@ class Solution:
                 if visited[i][j]:
                     continue
                 visited[i][j], distance[i][j] = 1, depth
-                for x, y in [[i+1, j], [i-1, j], [i, j+1], [i, j-1]]:
+                for x, y in ((i+1, j), (i-1, j), (i, j+1), (i, j-1)):
                     if 0 <= x < n and 0 <= y < n:
                         B.append((x, y))
             thieves = B
@@ -33,7 +33,7 @@ class Solution:
             
             visited[i][j] = 1
 
-            for x, y in [[i+1, j], [i-1, j], [i, j+1], [i, j-1]]:
+            for x, y in ((i+1, j), (i-1, j), (i, j+1), (i, j-1)):
                 if 0 <= x < n and 0 <= y < n:
                     heapq.heappush(pq, (-min(-dis, distance[x][y]), x, y))
         return -1
