@@ -1,4 +1,3 @@
-
 class Solution:
     def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
         n = len(grid)
@@ -22,11 +21,10 @@ class Solution:
             depth += 1
             
         # start from 0,0 and use dijkstra  
-        from heapq import heappop, heappush
         visited = [[0 for j in range(n)] for i in range(n)]
         pq = [[-distance[0][0], 0, 0]]
         while pq:
-            dis, i, j = heappop(pq)
+            dis, i, j = heapq.heappop(pq)
             if visited[i][j]:
                 continue
             if i == n-1 and j == n-1:
@@ -36,5 +34,5 @@ class Solution:
 
             for x, y in [[i+1, j], [i-1, j], [i, j+1], [i, j-1]]:
                 if 0 <= x < n and 0 <= y < n:
-                    heappush(pq, [-min(-dis, distance[x][y]), x, y])
+                    heapq.heappush(pq, [-min(-dis, distance[x][y]), x, y])
         return -1
