@@ -8,7 +8,7 @@ class Solution:
 
         # find the minimum mahatten distance of each cell to theives 
         depth = 0
-        
+        edge = (-1, n)
         while thieves:
             B = set()
             for i, j in thieves:
@@ -19,7 +19,7 @@ class Solution:
                 visited[i][j], distance[i][j] = 1, depth
                 
                 for x, y in ((i+1, j), (i-1, j), (i, j+1), (i, j-1)):
-                    if 0 <= x < n and 0 <= y < n:
+                    if x not in edge and y not in edge:
                         B.add((x, y))
             thieves = B
             depth += 1
@@ -40,6 +40,6 @@ class Solution:
             visited[i][j] = 1
 
             for x, y in ((i+1, j), (i-1, j), (i, j+1), (i, j-1)):
-                if 0 <= x < n and 0 <= y < n:
+                if x not in edge and y not in edge:
                     heapq.heappush(pq, (-min(-dis, distance[x][y]), x, y))
         return -1
