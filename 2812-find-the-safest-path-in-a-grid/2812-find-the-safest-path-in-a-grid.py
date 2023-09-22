@@ -23,6 +23,7 @@ class Solution:
         # start from 0,0 and use dijkstra  
         visited = [[0 for j in range(n)] for i in range(n)]
         pq = [[-distance[0][0], 0, 0]]
+        
         while pq:
             dis, i, j = heapq.heappop(pq)
             if visited[i][j]:
