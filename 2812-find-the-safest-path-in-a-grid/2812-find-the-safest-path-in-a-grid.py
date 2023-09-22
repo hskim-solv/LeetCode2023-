@@ -36,7 +36,7 @@ class Solution:
             if visited[i][j]:
                 continue
                 
-            if i == n-1 and j == n-1:
+            if (i, j) == (n-1, n-1):
                 return -dis
             
             visited[i][j] = 1
