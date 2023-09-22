@@ -3,8 +3,8 @@ class Solution:
         n = len(grid)
         thieves = [[i, j] for j in range(n) for i in range(n) if grid[i][j]]
 
-        visited = [[0 for j in range(n)] for i in range(n)]
-        distance = [[0 for j in range(n)] for i in range(n)]
+        visited = [[0 for _ in range(n)] for _ in range(n)]
+        distance = [[0 for _ in range(n)] for _ in range(n)]
 
         # find the minimum mahatten distance of each cell to theives 
         depth = 0
@@ -21,7 +21,7 @@ class Solution:
             depth += 1
             
         # start from 0,0 and use dijkstra  
-        visited = [[0 for j in range(n)] for i in range(n)]
+        visited = [[0 for _ in range(n)] for _ in range(n)]
         pq = [[-distance[0][0], 0, 0]]
         
         while pq:
