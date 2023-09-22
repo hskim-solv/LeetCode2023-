@@ -10,14 +10,17 @@ class Solution:
         depth = 0
         
         while thieves:
-            B = []
+            B = set()
             for i, j in thieves:
+                
                 if visited[i][j]:
                     continue
+                    
                 visited[i][j], distance[i][j] = 1, depth
+                
                 for x, y in ((i+1, j), (i-1, j), (i, j+1), (i, j-1)):
                     if 0 <= x < n and 0 <= y < n:
-                        B.append((x, y))
+                        B.add((x, y))
             thieves = B
             depth += 1
 
