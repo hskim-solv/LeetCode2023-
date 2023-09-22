@@ -1,5 +1,7 @@
 class Solution:
     def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
+        if grid[-1][-1]:
+            return 0
         n = len(grid)
         thieves = [(i, j) for j in range(n) for i in range(n) if grid[i][j]]
 
