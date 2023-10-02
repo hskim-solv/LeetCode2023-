@@ -3,5 +3,6 @@ class Solution:
         res = set()
         for n in nums:
             for i in range(n[0],n[1]+1):
-                res.add(i)
+                if i not in res:
+                    res.add(i)
         return len(res)
