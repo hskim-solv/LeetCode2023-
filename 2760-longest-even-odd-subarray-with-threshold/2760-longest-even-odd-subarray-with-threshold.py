@@ -22,11 +22,6 @@ class Solution:
                 if nums[j] % 2 == 0:
                     i = j
                     flag = not flag
-                    if maxi == 0:
-                        maxi = 1
-                    
-
-
-            
+                    maxi = max(maxi, 1)
 
         return maxi
