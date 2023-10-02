@@ -1,7 +1,5 @@
 class Solution:
     def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
-        if len(nums) == 1:
-            return 0 if nums[0] > threshold or nums[0] % 2 == 1 else 1
         ln = len(nums)
         mx = 0
         for l in range(ln):
