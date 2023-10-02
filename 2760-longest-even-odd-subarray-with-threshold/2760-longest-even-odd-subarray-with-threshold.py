@@ -19,9 +19,11 @@ class Solution:
                     flag = not flag
                     j -= 1
             else:
-                if nums[j] % 2 == 0:
-                    i = j
-                    flag = not flag
-                    maxi = max(maxi, 1)
+                if nums[j] % 2:
+                    continue
+                    
+                i = j
+                flag = not flag
+                maxi = max(maxi, 1)
 
         return maxi
