@@ -4,26 +4,28 @@ class Solution:
         maxi = 0
         i = 0
         j = -1
-        flag = 0
+        flag = False
 
         while j < n:
             j += 1
             if nums[j] > threshold:
-                if flag == 1:
-                    flag = 0
+                if flag:
+                    flag = False
                     j -= 1
                 continue
-            if flag == 0:
-                if nums[j] % 2 == 0:
-                    i = j
-                    maxi = max(maxi, j-i+1)
-                    flag = 1
-            elif flag == 1:
+            if flag:
                 if (nums[j-1]+nums[j]) % 2:
                     maxi = max(maxi, j-i+1)
                 else:
                     flag = 0
                     j -= 1
+            else:
+                if nums[j] % 2 == 0:
+                    i = j
+                    maxi = max(maxi, j-i+1)
+                    flag = 1
+
+
             
 
         return maxi
