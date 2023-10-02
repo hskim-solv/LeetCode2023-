@@ -17,19 +17,21 @@ class Solution:
                 if flag:
                     if nums[j-1] % 2 == 0:
                         maxi = max(maxi, j-i+1)
+                        continue
                     else:
-                        flag = not flag
                         j -= 1
+                else:
+                    continue
             else:
                 if flag:
                     if nums[j-1] % 2:
                         maxi = max(maxi, j-i+1)
+                        continue
                     else:
-                        flag = not flag
                         j -= 1
                 else:
                     i = j
                     maxi = max(maxi, 1)
-                    flag = not flag
+            flag = not flag
 
         return maxi
