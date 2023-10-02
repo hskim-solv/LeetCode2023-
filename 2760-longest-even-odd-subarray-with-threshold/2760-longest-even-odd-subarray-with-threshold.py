@@ -12,18 +12,24 @@ class Solution:
                     flag = not flag
                     j -= 1
                 continue
-            if flag:
-                if (nums[j-1]+nums[j]) % 2:
-                    maxi = max(maxi, j-i+1)
-                else:
-                    flag = not flag
-                    j -= 1
+                
+            if nums[j] % 2:
+                if flag:
+                    if nums[j-1] % 2 == 0:
+                        maxi = max(maxi, j-i+1)
+                    else:
+                        flag = not flag
+                        j -= 1
             else:
-                if nums[j] % 2:
-                    continue
-                    
-                i = j
-                flag = not flag
-                maxi = max(maxi, 1)
+                if flag:
+                    if nums[j-1] % 2:
+                        maxi = max(maxi, j-i+1)
+                    else:
+                        flag = not flag
+                        j -= 1
+                else:
+                    i = j
+                    maxi = max(maxi, 1)
+                    flag = not flag
 
         return maxi
