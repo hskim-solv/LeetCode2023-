@@ -9,20 +9,22 @@ class Solution:
             j += 1
             if nums[j] > threshold:
                 if flag:
-                    flag = False
+                    flag = not flag
                     j -= 1
                 continue
             if flag:
                 if (nums[j-1]+nums[j]) % 2:
                     maxi = max(maxi, j-i+1)
                 else:
-                    flag = False
+                    flag = not flag
                     j -= 1
             else:
                 if nums[j] % 2 == 0:
                     i = j
-                    maxi = max(maxi, j-i+1)
-                    flag = True
+                    flag = not flag
+                    if maxi == 0:
+                        maxi = 1
+                    
 
 
             
