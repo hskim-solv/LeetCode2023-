@@ -10,6 +10,7 @@ class Solution:
             if not root: return 0
             val *= 2
             val += root.val
-            return val if root.left == root.right else dfs(root.left, val) + dfs(root.right, val)
+            if root.left == root.right: return val
+            return dfs(root.left, val) + dfs(root.right, val)
         
         return dfs(root, 0)
