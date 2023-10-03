@@ -13,5 +13,6 @@ class Solution:
                 self.res += int(bits,2)
             if root.left: dfs(root.left, bits)
             if root.right: dfs(root.right, bits)
-        dfs(root,"")
+
+        dfs(root, "")
         return self.res
