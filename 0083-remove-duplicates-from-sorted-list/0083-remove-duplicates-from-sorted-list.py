@@ -4,8 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def deleteDuplicates(self, head: Optional[ListNode],order=0) -> Optional[ListNode]:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head and head.next:
-            head.next = self.deleteDuplicates(head.next,order+1)
+            head.next = self.deleteDuplicates(head.next)
             return head.next if head.val == head.next.val else head
         return head
