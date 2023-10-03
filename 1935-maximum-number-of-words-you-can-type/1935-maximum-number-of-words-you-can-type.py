@@ -4,7 +4,7 @@ class Solution:
         cnt = 0
         brokenLetters = set(brokenLetters)
         for word in text:
-            flag = True
+            #flag = True
             word = set(word)
             if len(word) == len(word-brokenLetters):
                 cnt += 1
