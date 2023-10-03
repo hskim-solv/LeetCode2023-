@@ -7,12 +7,13 @@
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
         self.res = 0
-        def dfs(root,bits):
-            bits += str(root.val)
-            if not root.left and not root.right:
-                self.res += int(bits,2)
+        def dfs(root, bits):
+            bits *= 2
+            bits += root.val
+            if root.left == root.right:
+                self.res += bits
             if root.left: dfs(root.left, bits)
             if root.right: dfs(root.right, bits)
 
-        dfs(root, "")
+        dfs(root, 0)
         return self.res
