@@ -8,6 +8,5 @@ class Solution:
             word = set(word)
             if len(word) == len(word-brokenLetters):
                 cnt += 1
-
         return cnt
             
