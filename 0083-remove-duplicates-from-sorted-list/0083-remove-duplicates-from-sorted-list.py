@@ -9,5 +9,6 @@ class Solution:
         while node:
             while node.next and node.val == node.next.val:
                 node.next = node.next.next
-            node = node.next
+            else:
+                node = node.next
         return head
