@@ -6,14 +6,11 @@
 #         self.right = right
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
-        self.res = 0
-        def dfs(root, bits):
-            bits *= 2
-            bits += root.val
-            if root.left == root.right:
-                self.res += bits
-            if root.left: dfs(root.left, bits)
-            if root.right: dfs(root.right, bits)
-
-        dfs(root, 0)
-        return self.res
+        def dfs(root, val):
+            if not root: return 0
+            val *= 2
+            val += root.val
+            if root.left == root.right: return val
+            return dfs(root.left, val) + dfs(root.right, val)
+        
+        return dfs(root, 0)
