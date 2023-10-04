@@ -1,5 +1,3 @@
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
-        for i in range(len(words)):
-            words[i] = filter(lambda x: x,words[i].split(separator))
-        return chain(*words)
+        return chain(*[filter(lambda x: x, word.split(separator)) for word in words])
