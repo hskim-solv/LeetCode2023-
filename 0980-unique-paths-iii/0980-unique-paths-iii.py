@@ -29,6 +29,6 @@ class Solution:
                 if j < n-1:
                     step(i, j+1, deepcopy(grid))
         grid[start[0]][start[1]] = 0
-        step(start[0],start[1], grid)
+        step(start[0],start[1], deepcopy(grid))
         return sum(self.res)
         
