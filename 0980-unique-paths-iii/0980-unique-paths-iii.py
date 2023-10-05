@@ -1,30 +1,40 @@
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
-        m = len(grid)
-        n = len(grid[0])
-        cnt = m*n
+        m, n = len(grid), len(grid[0])
+        start = None
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == -1:
-                    cnt -= 1
-                elif grid[i][j] == 1:
-                    x0,y0 = i,j
-        res = [0]
-        def dfs(path):
-            x, y = path[-1]
-            if not (0 <= x < m and 0 <= y < n and grid[x][y] >= 0): return
-            
-            if grid[x][y] == 2:
-                if len(path)==cnt:
-                    res[0] += 1
-                else:
-                    return
-            for xy in [[x-1,y],[x,y-1],[x+1,y],[x,y+1]]:
-                if xy not in path:
-                    dfs(path + [ xy ])
-
-            
+                if grid[i][j] == 1:
+                    start = (i,j)
+                    break
+            if start:
+                break
+        self.res = []
+        def step(i, j, grid):
+            if grid[i][j] == 2:
+                for row in grid:
+                    if 0 in row:
+                        return
+                self.res.append(1)
+            elif grid[i][j] == 0:
+                #print(i,j)
+                grid[i][j] = 3
+                if i > 0:
+                    step(i-1, j, deepcopy(grid))
+                if i < m-1:
+                    step(i+1, j, deepcopy(grid))
+                if j > 0:
+                    step(i, j-1, deepcopy(grid))
+                if j < n-1:
+                    step(i, j+1, deepcopy(grid))
+        grid[start[0]][start[1]] = 3
+        if start[0] > 0:
+            step(start[0]-1,start[1], deepcopy(grid))
+        if start[0] < m-1:
+            step(start[0]+1,start[1], deepcopy(grid))
+        if start[1] > 0:
+            step(start[0],start[1]-1, deepcopy(grid))
+        if start[1] < n-1:
+            step(start[0],start[1]+1, deepcopy(grid))
+        return sum(self.res)
         
-        dfs([[x0,y0]])
-
-        return res[0]
