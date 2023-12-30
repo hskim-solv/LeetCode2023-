@@ -6,8 +6,8 @@ class Solution:
         for ch in sorted(s):
             if ch in vowels:
                 q.append(ch)
-        
+        q = q[::-1]
         for i in range(len(s)):
             if s[i] in vowels:
-                s_list[i] = q.pop(0)
+                s_list[i] = q.pop()
         return "".join(s_list)
