@@ -13,5 +13,6 @@ class Solution:
             if vic_top < cnt_vic:
                 vic_top = cnt_vic
                 top_team = i
-            #print(top_team,vic_top,cnt_vic)
+            if vic_top + 1 >= n:
+                return top_team
         return top_team
