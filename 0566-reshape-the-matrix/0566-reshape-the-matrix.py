@@ -3,6 +3,6 @@ class Solution:
         if r*c != len(mat)*len(mat[0]):
             return mat
 
-        mat = list(chain(*mat))
+        mat = [i for row in mat for i in row]
 
         return [mat[i:i+c] for i in range(0, r*c, c)]
