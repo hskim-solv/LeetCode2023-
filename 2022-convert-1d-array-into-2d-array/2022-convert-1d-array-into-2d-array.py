@@ -1,13 +1,9 @@
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
         
-        res = []
+        ans = []
         if len(original) == m*n:
-            original.reverse()
-            for j in range(m):
-                row = []
-                for i in range(n):
-                        row.append(original.pop())
-                res.append(row)
+            for i in range(0, len(original), n): 
+                ans.append(original[i:i+n])
 
-        return res
+        return ans
