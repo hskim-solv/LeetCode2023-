@@ -1,9 +1,9 @@
 class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:
-        r, c = len(board), len(board[0])
+
         ans = 0
-        for i in range(r):
-            for j in range(c):
+        for i in range(8):
+            for j in range(8):
                 if board[i][j] == 'R':
                     for left in range(j-1, -1, -1):
                         if board[i][left] == 'B':
@@ -11,7 +11,7 @@ class Solution:
                         if board[i][left] == 'p':
                             ans += 1
                             break
-                    for right in range(j+1, c):
+                    for right in range(j+1, 8):
                         if board[i][right] == 'B':
                             break
                         if board[i][right] == 'p':
@@ -23,7 +23,7 @@ class Solution:
                         if board[up][j] == 'p':
                             ans += 1
                             break
-                    for down in range(i+1, r):
+                    for down in range(i+1, 8):
                         if board[down][j] == 'B':
                             break
                         if board[down][j] == 'p':
