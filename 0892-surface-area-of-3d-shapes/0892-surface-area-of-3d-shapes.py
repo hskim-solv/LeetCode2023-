@@ -6,8 +6,10 @@ class Solution:
             for j in range(m):
                 if grid[i][j]:
                     ans += 2
-                if i == 0:
-                    ans += grid[i][j]
+                    if i == 0:
+                        ans += grid[i][j]
+                    if j == 0:
+                        ans += grid[i][j]
                 if i == n-1:
                     ans += grid[i][j]
                 else:
@@ -16,6 +18,5 @@ class Solution:
                     ans += grid[i][j]
                 else:
                     ans += abs(grid[i][j]-grid[i][j+1])
-                if j == 0:
-                    ans += grid[i][j]
+
         return ans
