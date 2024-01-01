@@ -4,7 +4,6 @@ class Solution:
         for i in range(rows):
             for j in range(cols):
                 d[(i,j)] = abs(rCenter-i) + abs(cCenter-j)
-        res = list(d.keys())
-        res.sort(key=lambda x:d[x])
-        return res
-        #print(dir(res.sort))
+
+        return sorted(d.keys(),key=lambda x:d[x])
+        
