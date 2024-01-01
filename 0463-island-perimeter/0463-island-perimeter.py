@@ -6,10 +6,10 @@ class Solution:
         for i in range(n):
             for j in range(m):
                 if grid[i][j]:
-                    #res += 4
-                    if not(i+1 != n and grid[i+1][j]):
-                        res += 2
+                    res += 4
+                    if i+1 != n and grid[i+1][j]:
+                        res -= 2
             
-                    if not(j+1 != m and grid[i][j+1]):
-                        res += 2
+                    if j+1 != m and grid[i][j+1]:
+                        res -= 2
         return res
