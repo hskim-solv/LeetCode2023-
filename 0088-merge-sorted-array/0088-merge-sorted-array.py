@@ -3,17 +3,13 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        nm = n+m-1
-        n -= 1
-        m -= 1
         
-        while m+1 and n+1:
-            if nums1[m] < nums2[n]:
-                nums1[nm] = nums2[n]
+        while m and n:
+            if nums1[m-1] < nums2[n-1]:
+                nums1[m+n-1] = nums2.pop()
                 n -= 1
             else:
-                nums1[nm] = nums1[m]
+                nums1[m+n-1] = nums1[m-1]
                 m -= 1
-            nm -= 1
-        if n+1:
-            nums1[:n+1] = nums2[:n+1]
+        if n:
+            nums1[:n] = nums2[:n]
