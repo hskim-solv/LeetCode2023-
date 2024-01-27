@@ -7,7 +7,6 @@ class Solution:
             d[nums[i]] += 1
             if d[nums[i]] > 2:
                 nums.remove(nums[i])
-                #nums.append('_')
                 cnt -= 1
             else:
                 i += 1
