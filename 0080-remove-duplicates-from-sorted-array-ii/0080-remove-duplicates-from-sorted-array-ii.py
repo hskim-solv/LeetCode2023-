@@ -4,10 +4,11 @@ class Solution:
         cnt = len(nums)
         i = 0
         while i != cnt:
-            d[nums[i]] += 1
-            if d[nums[i]] > 2:
+            
+            if d[nums[i]] > 1:
                 nums.remove(nums[i])
                 cnt -= 1
             else:
+                d[nums[i]] += 1
                 i += 1
         return cnt
