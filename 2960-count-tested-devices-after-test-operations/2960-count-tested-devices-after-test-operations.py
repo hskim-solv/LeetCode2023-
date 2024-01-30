@@ -1,5 +1,7 @@
 class Solution:
     def countTestedDevices(self, batteryPercentages: List[int]) -> int:
+
+        """        
         n = len(batteryPercentages)
         ans = 0 
         for i in range(len(batteryPercentages)):
@@ -9,3 +11,8 @@ class Solution:
                         batteryPercentages[i+j] -= 1
                 ans += 1
         return ans
+        """
+        cnt = 0
+        for Percentage in batteryPercentages:
+            cnt += Percentage > cnt
+        return cnt
