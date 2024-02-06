@@ -9,6 +9,7 @@ class Solution:
             return 1
         while i < n-1:
             j = nums[i]
+            cnt += 1
             if i+j < n-1:
                 i += 1
                 jumps = nums[i:i+j]
@@ -16,6 +17,6 @@ class Solution:
                     jumps[s] += s
                 i += jumps.index(max(jumps))
             else:
-                return cnt+1
-            cnt += 1
+                return cnt
+            
         return cnt
