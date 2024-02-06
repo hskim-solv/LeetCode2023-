@@ -3,16 +3,16 @@ class Solution:
         n = len(nums)-1
         if n == 0:
             return 0  
-        if nums[0] == n:
+        j = nums[0]
+        if j == n:
             return 1
         i = 0
-        cnt = 0
-        while i < n:
-            j = nums[i]
+        cnt = 1
+        while i+j < n:
             cnt += 1
             if i+j < n:
                 i += 1
                 jumps = [i+s for i,s in enumerate(nums[i:i+j], 1)]
                 i += jumps.index(max(jumps))
-            else:
-                return cnt
+            j = nums[i]
+        return cnt
