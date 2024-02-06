@@ -12,9 +12,7 @@ class Solution:
             cnt += 1
             if i+j < n:
                 i += 1
-                jumps = nums[i:i+j]
-                for s in range(1, len(jumps)):
-                    jumps[s] += s
+                jumps = [i+s for i,s in enumerate(nums[i:i+j], 1)]
                 i += jumps.index(max(jumps))
             else:
                 return cnt
