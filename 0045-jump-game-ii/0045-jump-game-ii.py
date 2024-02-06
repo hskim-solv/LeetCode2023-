@@ -8,7 +8,7 @@ class Solution:
         while i+j < n:
             cnt += 1
             i += 1
-            jumps = [order+jump for order,jump in enumerate(nums[i:i+j], 1)]
+            jumps = [i+s for i,s in enumerate(nums[i:i+j], 1)]
             i += jumps.index(max(jumps))
             j = nums[i]
         return cnt
