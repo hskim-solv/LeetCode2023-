@@ -16,5 +16,3 @@ class Solution:
                 i += jumps.index(max(jumps))
             else:
                 return cnt
-            
-        return cnt
