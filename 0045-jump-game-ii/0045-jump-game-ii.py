@@ -10,10 +10,10 @@ class Solution:
         while i < n-1:
             j = nums[i]
             if i+j < n-1:
-                jumps = nums[i+1:i+1+j]
-                for s in range(len(jumps)):
-                    jumps[s] += s
                 i += 1
+                jumps = nums[i:i+j]
+                for s in range(1, len(jumps)):
+                    jumps[s] += s
                 i += jumps.index(max(jumps))
             else:
                 return cnt+1
