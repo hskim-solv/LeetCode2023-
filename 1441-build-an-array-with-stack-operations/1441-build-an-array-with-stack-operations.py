@@ -6,7 +6,5 @@ class Solution:
         while f:
             if f not in target:
                 res.insert(f, "Pop")
-            else:
-                target.pop()
             f -= 1
         return res
