@@ -7,6 +7,6 @@ class Solution:
             if f not in target:
                 res.insert(f, "Pop")
             else:
-                target.remove(f)
+                target.pop()
             f -= 1
         return res
