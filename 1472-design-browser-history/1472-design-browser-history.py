@@ -11,12 +11,10 @@ class BrowserHistory:
 
     def back(self, steps: int) -> str:
         self.pos = max(0,self.pos-steps)
-        print(self.url_list,self.pos)
         return self.url_list[self.pos]
 
     def forward(self, steps: int) -> str:
         self.pos = min(self.pos+steps,len(self.url_list)-1)
-        print(self.url_list,self.pos)
         return self.url_list[self.pos]
 
 
