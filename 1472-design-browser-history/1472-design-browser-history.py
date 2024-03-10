@@ -6,16 +6,15 @@ class BrowserHistory:
 
     def visit(self, url: str) -> None:
         self.pos += 1 
-        self.url_list = self.url_list[:self.pos]
-        self.url_list.append(url)
-        
+        self.url_list = self.url_list[:self.pos] + [url]
+        #self.url_list.append(url)
 
     def back(self, steps: int) -> str:
-        self.pos = max(0,self.pos-steps)
+        self.pos = max(0, self.pos-steps)
         return self.url_list[self.pos]
 
     def forward(self, steps: int) -> str:
-        self.pos = min(self.pos+steps,len(self.url_list)-1)
+        self.pos = min(self.pos+steps, len(self.url_list)-1)
         return self.url_list[self.pos]
 
 
