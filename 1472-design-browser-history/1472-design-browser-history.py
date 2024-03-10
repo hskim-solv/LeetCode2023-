@@ -6,8 +6,8 @@ class BrowserHistory:
 
     def visit(self, url: str) -> None:
         self.pos += 1 
-        self.url_list = self.url_list[:self.pos] + [url]
-        #self.url_list.append(url)
+        self.url_list = self.url_list[:self.pos]
+        self.url_list.append(url)
 
     def back(self, steps: int) -> str:
         self.pos = max(0, self.pos-steps)
