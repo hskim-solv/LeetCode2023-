@@ -1,21 +1,21 @@
 class BrowserHistory:
 
     def __init__(self, homepage: str):
-        self.url_list = [homepage]
+        self.urls = [homepage]
         self.pos = 0
 
     def visit(self, url: str) -> None:
         self.pos += 1 
-        self.url_list = self.url_list[:self.pos]
-        self.url_list.append(url)
+        self.urls = self.urls[:self.pos]
+        self.urls.append(url)
 
     def back(self, steps: int) -> str:
         self.pos = max(0, self.pos-steps)
-        return self.url_list[self.pos]
+        return self.urls[self.pos]
 
     def forward(self, steps: int) -> str:
-        self.pos = min(self.pos+steps, len(self.url_list)-1)
-        return self.url_list[self.pos]
+        self.pos = min(self.pos+steps, len(self.urls)-1)
+        return self.urls[self.pos]
 
 
 # Your BrowserHistory object will be instantiated and called as such:
