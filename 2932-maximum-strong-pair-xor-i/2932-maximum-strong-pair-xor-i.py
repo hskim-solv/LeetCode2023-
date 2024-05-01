@@ -1,5 +1,6 @@
 class Solution:
     def maximumStrongPairXor(self, nums: List[int]) -> int:
+        nums = set(nums)
         ans = 0
         for x in nums:
             for y in nums:
